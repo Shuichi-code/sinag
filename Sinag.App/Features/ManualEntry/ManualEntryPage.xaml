@@ -241,20 +241,25 @@
                         </Grid>
                     </Border>
 
-                    <!-- Calculate Button -->
+                    <!-- Calculate Button — Gradient -->
                     <Button Text="{l:Translate Manual_Calculate}"
                             Command="{Binding CalculateCommand}"
-                            BackgroundColor="{StaticResource PrimaryContainer}"
-                            TextColor="{StaticResource OnPrimaryContainer}"
+                            TextColor="White"
                             FontFamily="PlusJakartaSans"
                             FontSize="18"
                             FontAttributes="Bold"
                             CornerRadius="9999"
                             HeightRequest="60"
                             Margin="0,8,0,24">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#8d5900" Offset="0"/>
+                                <GradientStop Color="#c07b00" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <Button.Shadow>
-                            <Shadow Brush="{StaticResource PrimaryBrush}"
-                                    Offset="0,12" Radius="32" Opacity="0.12"/>
+                            <Shadow Brush="#8d5900"
+                                    Offset="0,10" Radius="28" Opacity="0.2"/>
                         </Button.Shadow>
                     </Button>
 

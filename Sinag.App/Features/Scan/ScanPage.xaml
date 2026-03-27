@@ -10,133 +10,149 @@
 
     <Grid>
         <ScrollView>
-            <VerticalStackLayout Padding="24" Spacing="24">
+            <VerticalStackLayout Spacing="0">
 
-                <!-- Instruction Card -->
-                <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        Padding="24">
-                    <VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+                <!-- Warm gradient header -->
+                <Grid HeightRequest="12">
+                    <BoxView>
+                        <BoxView.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#f8a010" Offset="0"/>
+                                <GradientStop Color="#fcd47c" Offset="0.5"/>
+                                <GradientStop Color="{StaticResource Surface}" Offset="1"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+                </Grid>
 
-                        <!-- Overline -->
-                        <Label Text="{l:Translate Scan_Guide}"
-                               Style="{StaticResource LabelMedium}"
-                               TextColor="{StaticResource Primary}"
-                               HorizontalOptions="Center"/>
+                <VerticalStackLayout Padding="24,16,24,24" Spacing="24">
 
-                        <!-- Instruction text -->
-                        <Label Text="{Binding StatusText}"
-                               FontFamily="PlusJakartaSans"
-                               FontSize="18"
-                               FontAttributes="Bold"
-                               TextColor="{StaticResource OnSurface}"
-                               HorizontalTextAlignment="Center"
-                               LineHeight="1.3"/>
-
-                        <!-- Bill illustration area -->
-                        <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
-                                StrokeThickness="0"
-                                StrokeShape="RoundRectangle 16"
-                                HeightRequest="200"
-                                WidthRequest="200"
-                                HorizontalOptions="Center">
-                            <Border.Shadow>
-                                <Shadow Brush="{StaticResource PrimaryBrush}"
-                                        Offset="0,12"
-                                        Radius="32"
-                                        Opacity="0.08"/>
-                            </Border.Shadow>
-                            <VerticalStackLayout VerticalOptions="Center"
-                                                 HorizontalOptions="Center"
-                                                 Spacing="8">
-                                <Label Text="📷"
-                                       FontSize="48"
-                                       HorizontalOptions="Center"/>
-                                <Label Text="{l:Translate Scan_DlpcBill}"
-                                       FontFamily="BeVietnamProRegular"
-                                       FontSize="13"
-                                       TextColor="{StaticResource OnSurfaceVariant}"
-                                       HorizontalOptions="Center"/>
-                            </VerticalStackLayout>
-                        </Border>
-
-                    </VerticalStackLayout>
-                </Border>
-
-                <!-- Action Buttons -->
-                <VerticalStackLayout Spacing="12">
-
-                    <!-- Primary: Take Photo -->
-                    <Button Text="{l:Translate Scan_TakePhoto}"
-                            Command="{Binding CapturePhotoCommand}"
-                            BackgroundColor="{StaticResource PrimaryContainer}"
-                            TextColor="{StaticResource OnPrimaryContainer}"
-                            FontFamily="PlusJakartaSans"
-                            FontSize="16"
-                            FontAttributes="Bold"
-                            CornerRadius="9999"
-                            HeightRequest="56">
-                        <Button.Shadow>
-                            <Shadow Brush="{StaticResource PrimaryBrush}"
-                                    Offset="0,12"
-                                    Radius="32"
-                                    Opacity="0.12"/>
-                        </Button.Shadow>
-                    </Button>
-
-                    <!-- Secondary: Choose from Gallery -->
-                    <Button Text="{l:Translate Scan_PickGallery}"
-                            Command="{Binding PickFromGalleryCommand}"
-                            BackgroundColor="{StaticResource SecondaryContainer}"
-                            TextColor="{StaticResource OnSecondaryContainer}"
-                            FontFamily="PlusJakartaSans"
-                            FontSize="16"
-                            FontAttributes="Bold"
-                            CornerRadius="9999"
-                            HeightRequest="56"/>
-                </VerticalStackLayout>
-
-                <!-- Error Message -->
-                <VerticalStackLayout IsVisible="{Binding HasError}" Spacing="8">
-                    <Border BackgroundColor="{StaticResource ErrorContainer}"
+                    <!-- Instruction Card -->
+                    <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
                             StrokeThickness="0"
-                            StrokeShape="RoundRectangle 12"
-                            Padding="16"
-                            Opacity="0.15">
-                        <Label Text="{Binding ErrorMessage}"
-                               TextColor="{StaticResource Error}"
-                               FontFamily="BeVietnamProRegular"
-                               FontSize="14"
-                               HorizontalTextAlignment="Center" />
+                            StrokeShape="RoundRectangle 24"
+                            Padding="24">
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource PrimaryBrush}"
+                                    Offset="0,10" Radius="28" Opacity="0.06"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+
+                            <!-- Overline -->
+                            <Label Text="{l:Translate Scan_Guide}"
+                                   Style="{StaticResource LabelMedium}"
+                                   TextColor="{StaticResource Primary}"
+                                   HorizontalOptions="Center"/>
+
+                            <!-- Instruction text -->
+                            <Label Text="{Binding StatusText}"
+                                   FontFamily="PlusJakartaSans"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource OnSurface}"
+                                   HorizontalTextAlignment="Center"
+                                   LineHeight="1.2"/>
+
+                            <!-- Bill illustration area -->
+                            <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 24"
+                                    HeightRequest="180"
+                                    WidthRequest="180"
+                                    HorizontalOptions="Center">
+                                <Border.Shadow>
+                                    <Shadow Brush="{StaticResource PrimaryBrush}"
+                                            Offset="0,10" Radius="28" Opacity="0.08"/>
+                                </Border.Shadow>
+                                <VerticalStackLayout VerticalOptions="Center"
+                                                     HorizontalOptions="Center"
+                                                     Spacing="8">
+                                    <Label Text="📷"
+                                           FontSize="48"
+                                           HorizontalOptions="Center"/>
+                                    <Label Text="{l:Translate Scan_DlpcBill}"
+                                           FontFamily="BeVietnamProRegular"
+                                           FontSize="13"
+                                           TextColor="{StaticResource OnSurfaceVariant}"
+                                           HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
                     </Border>
-                    <Label Text="{l:Translate Scan_ManualLink}"
-                           FontFamily="BeVietnamProMedium"
-                           FontSize="14"
-                           TextColor="{StaticResource Primary}"
-                           HorizontalOptions="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding GoToManualEntryCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
+
+                    <!-- Action Buttons -->
+                    <VerticalStackLayout Spacing="12">
+                        <!-- Primary: Take Photo — Gradient -->
+                        <Button Text="{l:Translate Scan_TakePhoto}"
+                                Command="{Binding CapturePhotoCommand}"
+                                TextColor="White"
+                                FontFamily="PlusJakartaSans"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                CornerRadius="9999"
+                                HeightRequest="56">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#8d5900" Offset="0"/>
+                                    <GradientStop Color="#c07b00" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Shadow>
+                                <Shadow Brush="#8d5900"
+                                        Offset="0,10" Radius="28" Opacity="0.2"/>
+                            </Button.Shadow>
+                        </Button>
+
+                        <!-- Secondary: Choose from Gallery -->
+                        <Button Text="{l:Translate Scan_PickGallery}"
+                                Command="{Binding PickFromGalleryCommand}"
+                                BackgroundColor="{StaticResource SecondaryContainer}"
+                                TextColor="{StaticResource OnSecondaryContainer}"
+                                FontFamily="PlusJakartaSans"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                CornerRadius="9999"
+                                HeightRequest="56"/>
+                    </VerticalStackLayout>
+
+                    <!-- Error Message -->
+                    <VerticalStackLayout IsVisible="{Binding HasError}" Spacing="8">
+                        <Border BackgroundColor="{StaticResource ErrorContainer}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="16"
+                                Opacity="0.15">
+                            <Label Text="{Binding ErrorMessage}"
+                                   TextColor="{StaticResource Error}"
+                                   FontFamily="BeVietnamProRegular"
+                                   FontSize="14"
+                                   HorizontalTextAlignment="Center" />
+                        </Border>
+                        <Label Text="{l:Translate Scan_ManualLink}"
+                               FontFamily="BeVietnamProMedium"
+                               FontSize="14"
+                               TextColor="{StaticResource Primary}"
+                               HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToManualEntryCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </VerticalStackLayout>
+
+                    <!-- Ambient footer text -->
+                    <HorizontalStackLayout HorizontalOptions="Center"
+                                           Spacing="8"
+                                           Opacity="0.5"
+                                           Padding="0,16">
+                        <Label Text="☀" FontSize="14" VerticalOptions="Center"/>
+                        <Label Text="{l:Translate Scan_Ready}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="13"
+                               TextColor="{StaticResource OnSurfaceVariant}"
+                               FontAttributes="Italic"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
                 </VerticalStackLayout>
-
-                <!-- Ambient footer text -->
-                <HorizontalStackLayout HorizontalOptions="Center"
-                                       Spacing="8"
-                                       Opacity="0.5"
-                                       Padding="0,16">
-                    <Label Text="☀"
-                           FontSize="14"
-                           VerticalOptions="Center"/>
-                    <Label Text="{l:Translate Scan_Ready}"
-                           FontFamily="BeVietnamProRegular"
-                           FontSize="13"
-                           TextColor="{StaticResource OnSurfaceVariant}"
-                           FontAttributes="Italic"
-                           VerticalOptions="Center"/>
-                </HorizontalStackLayout>
-
             </VerticalStackLayout>
         </ScrollView>
 

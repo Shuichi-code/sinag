@@ -12,28 +12,33 @@
     <ScrollView>
         <VerticalStackLayout Spacing="0">
 
-            <!-- Guidance Section — Bento Cards -->
-            <VerticalStackLayout Padding="20,20,20,24" Spacing="12">
+            <!-- ═══ Warm gradient accent bar ═══ -->
+            <Grid HeightRequest="8">
+                <BoxView>
+                    <BoxView.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#f8a010" Offset="0"/>
+                            <GradientStop Color="#69f6b8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </BoxView.Background>
+                </BoxView>
+            </Grid>
 
-                <!-- Step 1 — Large lead card -->
-                <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
-                        StrokeThickness="0"
-                        StrokeShape="RoundRectangle 16"
-                        Padding="24">
-                    <Border.Shadow>
-                        <Shadow Brush="{StaticResource PrimaryBrush}"
-                                Offset="0,12" Radius="32" Opacity="0.08"/>
-                    </Border.Shadow>
-                    <VerticalStackLayout Spacing="12">
-                        <Label Text="01"
-                               FontFamily="PlusJakartaSans"
-                               FontSize="48"
-                               FontAttributes="Bold"
-                               TextColor="{StaticResource Primary}"
-                               Opacity="0.1"/>
+            <!-- ═══ Linear Steps — Reference Layout ═══ -->
+            <VerticalStackLayout Padding="24,24,24,8" Spacing="24">
+
+                <!-- Step 01 — Large number, prominent -->
+                <Grid ColumnDefinitions="60,*" ColumnSpacing="12">
+                    <Label Text="01"
+                           FontFamily="PlusJakartaSans"
+                           FontSize="42"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource PrimaryContainer}"
+                           VerticalOptions="Start"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="8" VerticalOptions="Center">
                         <Label Text="{l:Translate Next_Step1Title}"
                                FontFamily="PlusJakartaSans"
-                               FontSize="22"
+                               FontSize="20"
                                FontAttributes="Bold"
                                TextColor="{StaticResource OnSurface}"/>
                         <Label Text="{l:Translate Next_Step1Desc}"
@@ -42,74 +47,55 @@
                                TextColor="{StaticResource OnSurfaceVariant}"
                                LineHeight="1.6"/>
                     </VerticalStackLayout>
-                </Border>
+                </Grid>
 
-                <!-- Steps 2 & 3 side-by-side -->
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <!-- Step 02 -->
+                <Grid ColumnDefinitions="60,*" ColumnSpacing="12">
+                    <Label Text="02"
+                           FontFamily="PlusJakartaSans"
+                           FontSize="42"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource PrimaryContainer}"
+                           VerticalOptions="Start"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="8" VerticalOptions="Center">
+                        <Label Text="{l:Translate Next_Step2Title}"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnSurface}"/>
+                        <Label Text="{l:Translate Next_Step2Desc}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="14"
+                               TextColor="{StaticResource OnSurfaceVariant}"
+                               LineHeight="1.6"/>
+                    </VerticalStackLayout>
+                </Grid>
 
-                    <!-- Step 2 -->
-                    <Border BackgroundColor="{StaticResource SurfaceContainerHighest}"
-                            StrokeThickness="0"
-                            StrokeShape="RoundRectangle 16"
-                            Padding="16">
-                        <Border.Shadow>
-                            <Shadow Brush="{StaticResource PrimaryBrush}"
-                                    Offset="0,12" Radius="32" Opacity="0.08"/>
-                        </Border.Shadow>
-                        <VerticalStackLayout Spacing="8">
-                            <Label Text="02"
-                                   FontFamily="PlusJakartaSans"
-                                   FontSize="32"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource Primary}"
-                                   Opacity="0.2"/>
-                            <Label Text="{l:Translate Next_Step2Title}"
-                                   FontFamily="PlusJakartaSans"
-                                   FontSize="16"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource OnSurface}"/>
-                            <Label Text="{l:Translate Next_Step2Desc}"
-                                   FontFamily="BeVietnamProRegular"
-                                   FontSize="12"
-                                   TextColor="{StaticResource OnSurfaceVariant}"
-                                   LineHeight="1.5"/>
-                        </VerticalStackLayout>
-                    </Border>
-
-                    <!-- Step 3 -->
-                    <Border Grid.Column="1"
-                            BackgroundColor="{StaticResource TertiaryContainer}"
-                            StrokeThickness="0"
-                            StrokeShape="RoundRectangle 16"
-                            Padding="16">
-                        <Border.Shadow>
-                            <Shadow Brush="{StaticResource PrimaryBrush}"
-                                    Offset="0,12" Radius="32" Opacity="0.08"/>
-                        </Border.Shadow>
-                        <VerticalStackLayout Spacing="8">
-                            <Label Text="03"
-                                   FontFamily="PlusJakartaSans"
-                                   FontSize="32"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource OnTertiaryContainer}"
-                                   Opacity="0.3"/>
-                            <Label Text="{l:Translate Next_Step3Title}"
-                                   FontFamily="PlusJakartaSans"
-                                   FontSize="16"
-                                   FontAttributes="Bold"
-                                   TextColor="{StaticResource OnTertiaryContainer}"/>
-                            <Label Text="{l:Translate Next_Step3Desc}"
-                                   FontFamily="BeVietnamProRegular"
-                                   FontSize="12"
-                                   TextColor="{StaticResource OnTertiaryContainer}"
-                                   LineHeight="1.5"/>
-                        </VerticalStackLayout>
-                    </Border>
+                <!-- Step 03 -->
+                <Grid ColumnDefinitions="60,*" ColumnSpacing="12">
+                    <Label Text="03"
+                           FontFamily="PlusJakartaSans"
+                           FontSize="42"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource TertiaryContainer}"
+                           VerticalOptions="Start"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="8" VerticalOptions="Center">
+                        <Label Text="{l:Translate Next_Step3Title}"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnSurface}"/>
+                        <Label Text="{l:Translate Next_Step3Desc}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="14"
+                               TextColor="{StaticResource OnSurfaceVariant}"
+                               LineHeight="1.6"/>
+                    </VerticalStackLayout>
                 </Grid>
             </VerticalStackLayout>
 
-            <!-- Installer Directory -->
-            <VerticalStackLayout Padding="20,0,20,8" Spacing="8">
+            <!-- ═══ Installer Directory ═══ -->
+            <VerticalStackLayout Padding="24,24,24,8" Spacing="8">
                 <Label Text="{l:Translate Next_InstallerDir}"
                        FontFamily="PlusJakartaSans"
                        FontSize="22"
@@ -128,12 +114,12 @@
                     <DataTemplate x:DataType="models:InstallerInfo">
                         <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
                                 StrokeThickness="0"
-                                StrokeShape="RoundRectangle 12"
+                                StrokeShape="RoundRectangle 16"
                                 Padding="16"
                                 Margin="0,4">
                             <Border.Shadow>
                                 <Shadow Brush="{StaticResource PrimaryBrush}"
-                                        Offset="0,8" Radius="24" Opacity="0.06"/>
+                                        Offset="0,6" Radius="20" Opacity="0.05"/>
                             </Border.Shadow>
                             <VerticalStackLayout Spacing="8">
                                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
@@ -189,7 +175,6 @@
                                                 CommandParameter="{Binding .}" />
                                         </Label.GestureRecognizers>
                                     </Label>
-
                                     <Label Text="{l:Translate Next_Website}"
                                            FontFamily="BeVietnamProMedium"
                                            FontSize="13"
@@ -217,20 +202,25 @@
                    HorizontalTextAlignment="Center"
                    Margin="20,16,20,0"/>
 
-            <!-- Back to Home Button -->
+            <!-- Back to Home Button — Gradient -->
             <Button Text="{l:Translate Next_GoHome}"
                     Command="{Binding GoHomeCommand}"
-                    BackgroundColor="{StaticResource PrimaryContainer}"
-                    TextColor="{StaticResource OnPrimaryContainer}"
+                    TextColor="White"
                     FontFamily="PlusJakartaSans"
                     FontSize="16"
                     FontAttributes="Bold"
                     CornerRadius="9999"
                     HeightRequest="52"
                     Margin="20,16,20,8">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#8d5900" Offset="0"/>
+                        <GradientStop Color="#c07b00" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
                 <Button.Shadow>
-                    <Shadow Brush="{StaticResource PrimaryBrush}"
-                            Offset="0,12" Radius="32" Opacity="0.12"/>
+                    <Shadow Brush="#8d5900"
+                            Offset="0,8" Radius="24" Opacity="0.2"/>
                 </Button.Shadow>
             </Button>
 

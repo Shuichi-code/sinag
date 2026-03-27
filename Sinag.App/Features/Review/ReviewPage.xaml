@@ -17,8 +17,20 @@
         <ScrollView>
             <VerticalStackLayout Spacing="0">
 
+                <!-- ═══ Warm gradient accent bar ═══ -->
+                <Grid HeightRequest="8">
+                    <BoxView>
+                        <BoxView.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#f8a010" Offset="0"/>
+                                <GradientStop Color="#69f6b8" Offset="1"/>
+                            </LinearGradientBrush>
+                        </BoxView.Background>
+                    </BoxView>
+                </Grid>
+
                 <!-- Hero Section -->
-                <VerticalStackLayout Padding="24,24,24,16" Spacing="12">
+                <VerticalStackLayout Padding="24,20,24,16" Spacing="12">
 
                     <!-- AI Scan badge -->
                     <Border BackgroundColor="{StaticResource TertiaryContainer}"
@@ -211,19 +223,24 @@
                 <!-- Action Buttons -->
                 <VerticalStackLayout Padding="24,20,24,32" Spacing="12">
 
-                    <!-- Confirm button -->
+                    <!-- Confirm button — Gradient -->
                     <Button Text="{l:Translate Review_Confirm}"
                             Command="{Binding ConfirmCommand}"
-                            BackgroundColor="{StaticResource PrimaryContainer}"
-                            TextColor="{StaticResource OnPrimaryContainer}"
+                            TextColor="White"
                             FontFamily="PlusJakartaSans"
                             FontSize="16"
                             FontAttributes="Bold"
                             CornerRadius="9999"
                             HeightRequest="56">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#8d5900" Offset="0"/>
+                                <GradientStop Color="#c07b00" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <Button.Shadow>
-                            <Shadow Brush="{StaticResource PrimaryBrush}"
-                                    Offset="0,12" Radius="32" Opacity="0.12"/>
+                            <Shadow Brush="#8d5900"
+                                    Offset="0,10" Radius="28" Opacity="0.2"/>
                         </Button.Shadow>
                     </Button>
 
