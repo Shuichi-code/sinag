@@ -152,17 +152,33 @@
                                 Padding="16,0"
                                 MinimumWidthRequest="0"
                                 BackgroundColor="Transparent"
-                                TextColor="{StaticResource OnSurfaceVariant}"/>
+                                TextColor="{StaticResource OnSurfaceVariant}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTierName}" Value="Budget">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource PrimaryContainer}"/>
+                                    <Setter Property="TextColor" Value="{StaticResource OnPrimaryContainer}"/>
+                                    <Setter Property="FontFamily" Value="BeVietnamProBold"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Text="{l:Translate Results_MidRange}"
                                 Command="{Binding SelectMidRangeCommand}"
-                                FontFamily="BeVietnamProBold"
+                                FontFamily="BeVietnamProMedium"
                                 FontSize="13"
                                 CornerRadius="9999"
                                 HeightRequest="36"
                                 Padding="16,0"
                                 MinimumWidthRequest="0"
-                                BackgroundColor="{StaticResource PrimaryContainer}"
-                                TextColor="{StaticResource OnPrimaryContainer}"/>
+                                BackgroundColor="Transparent"
+                                TextColor="{StaticResource OnSurfaceVariant}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTierName}" Value="Mid-Range">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource PrimaryContainer}"/>
+                                    <Setter Property="TextColor" Value="{StaticResource OnPrimaryContainer}"/>
+                                    <Setter Property="FontFamily" Value="BeVietnamProBold"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Text="{l:Translate Results_Premium}"
                                 Command="{Binding SelectPremiumCommand}"
                                 FontFamily="BeVietnamProMedium"
@@ -172,7 +188,15 @@
                                 Padding="16,0"
                                 MinimumWidthRequest="0"
                                 BackgroundColor="Transparent"
-                                TextColor="{StaticResource OnSurfaceVariant}"/>
+                                TextColor="{StaticResource OnSurfaceVariant}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" Binding="{Binding SelectedTierName}" Value="Premium">
+                                    <Setter Property="BackgroundColor" Value="{StaticResource PrimaryContainer}"/>
+                                    <Setter Property="TextColor" Value="{StaticResource OnPrimaryContainer}"/>
+                                    <Setter Property="FontFamily" Value="BeVietnamProBold"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                     </HorizontalStackLayout>
                 </Border>
 

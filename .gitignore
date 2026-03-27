@@ -3,6 +3,8 @@ bin/
 obj/
 *.user
 *.suo
+*.keystore
+*.jks
 *.userosscache
 *.sln.docstates
 .vs/
@@ -50,3 +52,4 @@ screenshot_*.png
 
 ## Claude Code
 .claude/
+.playwright-mcp/

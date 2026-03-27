@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; }
+  body { width: 512px; height: 512px; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="512" height="512"></canvas>
+<script>
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+const W = 512, H = 512, cx = W/2, cy = H/2;
+
+// Background: rounded square with warm gradient
+const r = 90; // corner radius
+ctx.beginPath();
+ctx.moveTo(r, 0);
+ctx.lineTo(W - r, 0);
+ctx.quadraticCurveTo(W, 0, W, r);
+ctx.lineTo(W, H - r);
+ctx.quadraticCurveTo(W, H, W - r, H);
+ctx.lineTo(r, H);
+ctx.quadraticCurveTo(0, H, 0, H - r);
+ctx.lineTo(0, r);
+ctx.quadraticCurveTo(0, 0, r, 0);
+ctx.closePath();
+
+const bg = ctx.createRadialGradient(cx, cy * 0.7, 50, cx, cy, 320);
+bg.addColorStop(0, '#FFD54F');
+bg.addColorStop(0.4, '#FFC107');
+bg.addColorStop(0.7, '#FF9800');
+bg.addColorStop(1, '#E65100');
+ctx.fillStyle = bg;
+ctx.fill();
+
+// Subtle texture overlay
+ctx.save();
+ctx.globalAlpha = 0.06;
+for (let i = 0; i < 200; i++) {
+  const x = Math.random() * W;
+  const y = Math.random() * H;
+  const s = Math.random() * 3 + 1;
+  ctx.fillStyle = Math.random() > 0.5 ? '#fff' : '#000';
+  ctx.fillRect(x, y, s, s);
+}
+ctx.restore();
+
+// Sun rays (12 rays radiating from center)
+ctx.save();
+ctx.translate(cx, cy - 10);
+const rayCount = 12;
+for (let i = 0; i < rayCount; i++) {
+  const angle = (i * Math.PI * 2) / rayCount;
+  ctx.save();
+  ctx.rotate(angle);
+
+  // Each ray: tapered rectangle
+  const innerR = 120;
+  const outerR = 195;
+  const rayW = 18;
+
+  ctx.beginPath();
+  ctx.moveTo(-rayW/2, -innerR);
+  ctx.lineTo(rayW/2, -innerR);
+  ctx.lineTo(rayW * 0.3, -outerR);
+  ctx.lineTo(-rayW * 0.3, -outerR);
+  ctx.closePath();
+
+  const rayGrad = ctx.createLinearGradient(0, -innerR, 0, -outerR);
+  rayGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+  rayGrad.addColorStop(1, 'rgba(255, 255, 255, 0.3)');
+  ctx.fillStyle = rayGrad;
+  ctx.fill();
+
+  ctx.restore();
+}
+ctx.restore();
+
+// Sun circle (main body)
+ctx.save();
+ctx.translate(cx, cy - 10);
+
+// Outer glow
+const glow = ctx.createRadialGradient(0, 0, 80, 0, 0, 115);
+glow.addColorStop(0, 'rgba(255, 255, 255, 0)');
+glow.addColorStop(0.7, 'rgba(255, 255, 255, 0.15)');
+glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+ctx.fillStyle = glow;
+ctx.beginPath();
+ctx.arc(0, 0, 115, 0, Math.PI * 2);
+ctx.fill();
+
+// Main sun circle
+const sunGrad = ctx.createRadialGradient(-15, -15, 10, 0, 0, 95);
+sunGrad.addColorStop(0, '#FFF9C4');
+sunGrad.addColorStop(0.3, '#FFE082');
+sunGrad.addColorStop(0.7, '#FFB300');
+sunGrad.addColorStop(1, '#FF8F00');
+ctx.fillStyle = sunGrad;
+ctx.beginPath();
+ctx.arc(0, 0, 95, 0, Math.PI * 2);
+ctx.fill();
+
+// Inner highlight
+ctx.beginPath();
+ctx.arc(-20, -20, 60, 0, Math.PI * 2);
+ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+ctx.fill();
+
+ctx.restore();
+
+// Solar panel / calculator icon inside the sun
+ctx.save();
+ctx.translate(cx, cy - 10);
+
+// Panel body (rounded rectangle)
+const pw = 70, ph = 80, pr = 8;
+const px = -pw/2, py = -ph/2 + 5;
+
+ctx.beginPath();
+ctx.moveTo(px + pr, py);
+ctx.lineTo(px + pw - pr, py);
+ctx.quadraticCurveTo(px + pw, py, px + pw, py + pr);
+ctx.lineTo(px + pw, py + ph - pr);
+ctx.quadraticCurveTo(px + pw, py + ph, px + pw - pr, py + ph);
+ctx.lineTo(px + pr, py + ph);
+ctx.quadraticCurveTo(px, py + ph, px, py + ph - pr);
+ctx.lineTo(px, py + pr);
+ctx.quadraticCurveTo(px, py, px + pr, py);
+ctx.closePath();
+
+const panelGrad = ctx.createLinearGradient(px, py, px + pw, py + ph);
+panelGrad.addColorStop(0, '#5D4037');
+panelGrad.addColorStop(0.5, '#3E2723');
+panelGrad.addColorStop(1, '#4E342E');
+ctx.fillStyle = panelGrad;
+ctx.fill();
+
+ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+ctx.lineWidth = 1.5;
+ctx.stroke();
+
+// Solar panel grid lines
+ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+ctx.lineWidth = 1.5;
+
+// Horizontal lines (3 rows = 2 lines)
+for (let i = 1; i <= 2; i++) {
+  const ly = py + (ph * i) / 3;
+  ctx.beginPath();
+  ctx.moveTo(px + 4, ly);
+  ctx.lineTo(px + pw - 4, ly);
+  ctx.stroke();
+}
+
+// Vertical line (center)
+ctx.beginPath();
+ctx.moveTo(cx - cx, py + 4);
+ctx.lineTo(cx - cx, py + ph - 4);
+ctx.stroke();
+
+// Small solar cell highlights (6 cells in a 2x3 grid)
+ctx.fillStyle = 'rgba(100, 181, 246, 0.3)';
+const cellPad = 5;
+const cellW = (pw - 3 * cellPad) / 2;
+const cellH = (ph - 4 * cellPad) / 3;
+for (let row = 0; row < 3; row++) {
+  for (let col = 0; col < 2; col++) {
+    const cellX = px + cellPad + col * (cellW + cellPad);
+    const cellY = py + cellPad + row * (cellH + cellPad);
+    ctx.fillRect(cellX, cellY, cellW, cellH);
+  }
+}
+
+// Panel reflection
+ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+ctx.beginPath();
+ctx.moveTo(px + pr, py);
+ctx.lineTo(px + pw - pr, py);
+ctx.quadraticCurveTo(px + pw, py, px + pw, py + pr);
+ctx.lineTo(px, py + ph * 0.4);
+ctx.lineTo(px, py + pr);
+ctx.quadraticCurveTo(px, py, px + pr, py);
+ctx.closePath();
+ctx.fill();
+
+ctx.restore();
+
+// Subtle vignette
+ctx.save();
+const vig = ctx.createRadialGradient(cx, cy, 150, cx, cy, 360);
+vig.addColorStop(0, 'rgba(0,0,0,0)');
+vig.addColorStop(1, 'rgba(0,0,0,0.15)');
+ctx.fillStyle = vig;
+ctx.fillRect(0, 0, W, H);
+ctx.restore();
+</script>
+</body>
+</html>

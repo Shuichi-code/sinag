@@ -27,11 +27,5 @@ public partial class HomeViewModel : ObservableObject
         if (LocalizationService.Instance.CurrentLanguage == code) return;
         SelectedLanguage = code;
         LocalizationService.Instance.SetLanguage(code);
-
-        // Rebuild shell to refresh all pages with new language
-        if (Application.Current?.Windows.Count > 0)
-        {
-            Application.Current.Windows[0].Page = new AppShell();
-        }
     }
 }

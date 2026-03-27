@@ -1,0 +1,286 @@
+- generic [ref=e1]:
+  - generic:
+    - generic:
+      - img
+      - progressbar
+      - generic: Loading Google Play Console
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Google Play Console logo" [ref=e7] [cursor=pointer]:
+          - /url: /console/u/0/developers/8694059111226962711/app-list
+          - button "Google Play Console logo" [ref=e8]
+        - generic [ref=e9]:
+          - button "Notifications Open notification center" [ref=e15]:
+            - img [ref=e19]: notifications
+            - generic [ref=e21]: Notifications
+          - generic [ref=e22]:
+            - button "Sinag - Solar Calculator" [ref=e30] [cursor=pointer]:
+              - generic [ref=e34]:
+                - img [ref=e36]
+                - generic [ref=e40]: Sinag - Solar Calculator
+            - button "Switch developer accounts" [ref=e45] [cursor=pointer]:
+              - img "Switch developer accounts" [ref=e47]
+    - navigation [ref=e53]:
+      - link "All apps" [ref=e54] [cursor=pointer]:
+        - /url: /console/u/0/developers/8694059111226962711/app-list
+        - img [ref=e56]: keyboard_backspace
+        - generic [ref=e57]: All apps
+      - list [ref=e58]:
+        - listitem "Dashboard" [ref=e61]:
+          - button "Dashboard" [ref=e62] [cursor=pointer]:
+            - img [ref=e65]: dashboard
+            - generic [ref=e66]: Dashboard
+        - listitem "Statistics" [ref=e69]:
+          - button "Statistics" [ref=e70] [cursor=pointer]:
+            - img [ref=e73]: bar_chart
+            - generic [ref=e74]: Statistics
+        - listitem "Publishing overview" [ref=e77]:
+          - button "Publishing overview" [ref=e78] [cursor=pointer]:
+            - img [ref=e81]: overview
+            - generic [ref=e82]: Publishing overview
+        - listitem "Test and release" [ref=e85]:
+          - button "Test and release" [ref=e86] [cursor=pointer]:
+            - img [ref=e89]: rocket_launch
+            - generic [ref=e90]: Test and release
+        - listitem "Monitor and improve" [ref=e93]:
+          - button "Monitor and improve" [ref=e94] [cursor=pointer]:
+            - img [ref=e97]: vital_signs
+            - generic [ref=e98]: Monitor and improve
+        - listitem "Grow users" [ref=e101]:
+          - button "Grow users" [ref=e102] [cursor=pointer]:
+            - img [ref=e105]: finance_mode
+            - generic [ref=e106]: Grow users
+          - list [ref=e7798]:
+            - generic [ref=e7800]:
+              - listitem "Store presence" [ref=e7802]:
+                - button "Store presence" [ref=e7803] [cursor=pointer]:
+                  - generic [ref=e7804]: Store presence
+                  - img [ref=e7806]: expand_less
+                - list [ref=e7807]:
+                  - generic [ref=e7809]:
+                    - listitem "Store listings" [ref=e7811]:
+                      - button "Store listings" [ref=e7812] [cursor=pointer]:
+                        - generic [ref=e7813]: Store listings
+                    - listitem "Store listing experiments" [ref=e7815]:
+                      - button "Store listing experiments" [ref=e7816] [cursor=pointer]:
+                        - generic [ref=e7817]: Store listing experiments
+                    - listitem "Store settings" [ref=e7819]:
+                      - button "Store settings" [ref=e7820] [cursor=pointer]:
+                        - generic [ref=e7821]: Store settings
+              - listitem "Store performance" [ref=e7823]:
+                - button "Store performance" [ref=e7824] [cursor=pointer]:
+                  - generic [ref=e7825]: Store performance
+                  - img [ref=e7827]: expand_more
+              - listitem "Translations" [ref=e7829]:
+                - button "Translations" [ref=e7830] [cursor=pointer]:
+                  - generic [ref=e7831]: Translations
+                  - img [ref=e7833]: expand_more
+              - listitem "Deep links" [ref=e7835]:
+                - button "Deep links" [ref=e7836] [cursor=pointer]:
+                  - generic [ref=e7837]: Deep links
+        - listitem "Monetize with Play" [ref=e109]:
+          - button "Monetize with Play" [ref=e110] [cursor=pointer]:
+            - img [ref=e113]: sell
+            - generic [ref=e114]: Monetize with Play
+    - generic [ref=e116]:
+      - generic [ref=e8623]:
+        - generic [ref=e8627]:
+          - link "Go back to Store listings" [ref=e8630] [cursor=pointer]:
+            - /url: /console/u/0/developers/8694059111226962711/app/4973176299267570701/store-listings
+            - img [ref=e8634]: keyboard_backspace
+            - generic [ref=e8635]: Store listings
+          - generic [ref=e8638]:
+            - heading "Create default store listing" [level=1] [ref=e8644]
+            - generic [ref=e8649]:
+              - text: Edit your app’s name, icon, screenshots and more to present how your app looks to users on Google Play.
+              - button "Show more details about Create default store listing" [ref=e8650] [cursor=pointer]: Show more
+        - generic [ref=e8653]:
+          - generic [ref=e8657]:
+            - generic [ref=e8660]: Default – English (United States) – en-US
+            - button "Manage translations" [ref=e8664] [cursor=pointer]:
+              - generic [ref=e8667]: Manage translations
+              - img [ref=e8669]: arrow_drop_down
+          - paragraph [ref=e8672]: "* – Required fields. Enter all fields in English (United States) – en-US"
+          - generic [ref=e8674]:
+            - heading "Listing assets" [level=2] [ref=e8686]
+            - paragraph [ref=e8690]:
+              - generic [ref=e8692]:
+                - text: Check the
+                - link "Metadata policy" [ref=e8693] [cursor=pointer]:
+                  - /url: https://play.google.com/about/storelisting-promotional/metadata
+                - text: and
+                - link "Help Center guidance" [ref=e8694] [cursor=pointer]:
+                  - /url: https://support.google.com/googleplay/android-developer/answer/9866151
+                - text: to avoid common issues with your store listing. Review all
+                - link "program policies" [ref=e8695] [cursor=pointer]:
+                  - /url: https://play.google.com/about/developer-content-policy
+                - text: before submitting your app.
+                - text: If you're eligible to
+                - link "provide advance notice" [ref=e8696] [cursor=pointer]:
+                  - /url: https://support.google.com/googleplay/android-developer/answer/6320428
+                - text: to the app review team, contact us before publishing your store listing.
+            - generic [ref=e8700]:
+              - group "App name" [ref=e8702]:
+                - generic [ref=e8705]: App name *
+                - generic [ref=e8711]:
+                  - textbox "Name of the app" [ref=e8713]: Sinag - Solar Calculator
+                  - generic [ref=e8714]:
+                    - paragraph [ref=e8715]: This is how your app will appear on Google Play
+                    - generic [ref=e8716]:
+                      - generic [ref=e8717]: 24 / 30
+                      - generic [ref=e8718]: Text is 24 characters out of 30
+              - group "Short description" [ref=e8720]:
+                - generic [ref=e8723]: Short description *
+                - generic [ref=e8729]:
+                  - textbox "Short description of the app" [ref=e8731]: Scan your DLPC electric bill and get a personalized solar panel estimate for your Davao home.
+                  - generic [ref=e8732]:
+                    - alert [ref=e9084]: Add a short description for your app
+                    - generic [ref=e8734]:
+                      - generic [ref=e8735]: 93 / 80
+                      - generic [ref=e8736]: Text is 93 characters out of 80
+              - group "Full description" [ref=e8738]:
+                - generic [ref=e8741]: Full description *
+                - generic [ref=e8747]:
+                  - textbox "Full description of the app" [active] [ref=e8750]: "Sinag helps Davao City homeowners explore solar energy by turning their electric bill into a personalized solar installation estimate — in seconds. HOW IT WORKS 1. Take a photo of your DLPC electric bill 2. Sinag reads it automatically using on-device OCR 3. Get a complete solar system recommendation with pricing WHAT YOU GET • System size recommendation based on your actual consumption • Detailed Bill of Materials — panels, inverter, battery, mounting, wiring • Three pricing tiers: Budget, Mid-Range, and Premium • Monthly savings estimate using your real DLPC generation charge • ROI timeline showing when your system pays for itself • Battery sizing for hybrid (grid-tied + backup) systems BUILT FOR DAVAO • Designed specifically for DLPC (Davao Light) residential bills • Uses real Davao solar irradiance data from NASA • Local equipment pricing with Davao discount • Directory of Davao-based solar installers to help you take the next step PRIVACY FIRST • Bill photos are processed entirely on your device — never uploaded • No account required • No ads, no tracking • Optional email-a-copy feature (auto-deleted after 90 days) Available in Filipino, English, and Cebuano. Sinag — your first step toward solar."
+                  - generic [ref=e8751]:
+                    - paragraph [ref=e8752]
+                    - generic [ref=e8753]:
+                      - generic [ref=e8754]: 1226 / 4000
+                      - generic [ref=e8755]: Text is 1226 characters out of 4000
+            - heading "Graphics" [level=2] [ref=e8767]
+            - paragraph [ref=e8771]:
+              - generic [ref=e8773]:
+                - text: Manage your app icon, screenshots, and videos to promote your app on Google Play. Review the
+                - link "content guidelines" [ref=e8774] [cursor=pointer]:
+                  - /url: https://support.google.com/googleplay/android-developer/answer/9866151#zippy=%2Capp-icon
+                - text: before uploading new graphics. If you add translations for your store listing without localized graphics, we will use the graphics from your default language.
+            - generic [ref=e8778]:
+              - group "App icon" [ref=e8780]:
+                - generic [ref=e8783]: App icon *
+                - generic [ref=e8788]:
+                  - button "Add assets" [ref=e8793]:
+                    - generic [ref=e8796]: Add assets
+                  - paragraph [ref=e8798]:
+                    - generic [ref=e8800]:
+                      - text: Your app icon must be a PNG or JPEG, up to 1 MB, 512 px by 512 px, and meet our
+                      - link "design specifications" [ref=e8801] [cursor=pointer]:
+                        - /url: https://developer.android.com/google-play/resources/icon-design-specifications
+                      - text: and
+                      - link "metadata policy" [ref=e8802] [cursor=pointer]:
+                        - /url: https://support.google.com/googleplay/android-developer/answer/9898842
+              - group "Feature graphic" [ref=e8804]:
+                - generic [ref=e8807]: Feature graphic *
+                - generic [ref=e8812]:
+                  - button "Add assets" [ref=e8817]:
+                    - generic [ref=e8820]: Add assets
+                  - paragraph [ref=e8822]:
+                    - generic [ref=e8823]: Your feature graphic must be a PNG or JPEG, up to 15 MB, and 1,024 px by 500 px
+              - group "Video" [ref=e8825]:
+                - generic [ref=e8828]: Video
+                - generic [ref=e8834]:
+                  - generic [ref=e8835]:
+                    - generic:
+                      - generic:
+                        - generic: https://www.youtube.com/watch?v=
+                    - textbox "Promotional YouTube video URL for the app" [ref=e8836]
+                  - paragraph [ref=e8838]: Add a video by entering a YouTube URL. This video must be public or unlisted, ads must be turned off, and it must not be age restricted.
+            - heading "Phone" [level=3] [ref=e8850]
+            - group "Phone screenshots" [ref=e8856]:
+              - generic [ref=e8859]: Phone screenshots *
+              - generic [ref=e8861]:
+                - generic [ref=e8864]:
+                  - button "Add assets" [ref=e8869]:
+                    - generic [ref=e8872]: Add assets
+                  - paragraph [ref=e8874]:
+                    - generic [ref=e8875]: Upload 2-8 phone screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 320 px and 3,840 px
+                - generic [ref=e8876]:
+                  - img [ref=e8879]: info
+                  - generic [ref=e8882]: To be eligible for promotion, include at least 4 screenshots at a minimum of 1080 px on each side.
+                  - link "View content guidelines about phone screenshots" [ref=e8889] [cursor=pointer]:
+                    - /url: https://support.google.com/googleplay/android-developer/answer/9866151#screenshots
+                    - generic [ref=e8892]: View content guidelines
+            - heading "Tablet" [level=3] [ref=e8904]
+            - generic [ref=e8908]:
+              - group "7-inch tablet screenshots" [ref=e8910]:
+                - generic [ref=e8913]: 7-inch tablet screenshots *
+                - generic [ref=e8918]:
+                  - button "Add assets" [ref=e8923]:
+                    - generic [ref=e8926]: Add assets
+                  - paragraph [ref=e8928]:
+                    - generic [ref=e8929]: Upload up to eight 7-inch tablet screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 320 px and 3,840 px
+              - group "10-inch tablet screenshots" [ref=e8931]:
+                - generic [ref=e8934]: 10-inch tablet screenshots *
+                - generic [ref=e8939]:
+                  - button "Add assets" [ref=e8944]:
+                    - generic [ref=e8947]: Add assets
+                  - paragraph [ref=e8949]:
+                    - generic [ref=e8950]: Upload up to eight 10-inch tablet screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 1,080 px and 7,680 px
+            - heading "Chromebook" [level=3] [ref=e8962]
+            - group "Chromebook screenshots" [ref=e8968]:
+              - generic [ref=e8971]: Chromebook screenshots
+              - generic [ref=e8976]:
+                - button "Add assets" [ref=e8981]:
+                  - generic [ref=e8984]: Add assets
+                - paragraph [ref=e8986]:
+                  - generic [ref=e8987]: Upload 4-8 screenshots. Screenshots must be PNG or JPEG, up to 8 MB each, 16:9 or 9:16 aspect ratio, with each side between 1,080 px and 7,680 px
+            - heading "Android XR" [level=3] [ref=e8999]
+            - generic [ref=e9003]:
+              - group "Android XR screenshots" [ref=e9005]:
+                - generic [ref=e9008]: Android XR screenshots
+                - generic [ref=e9013]:
+                  - button "Add assets" [ref=e9018]:
+                    - generic [ref=e9021]: Add assets
+                  - paragraph [ref=e9023]:
+                    - generic [ref=e9024]: Upload 4-8 screenshots. Screenshots must be PNG or JPEG, up to 15 MB each, 16:9 or 9:16 aspect ratio, with each side between 720 px and 7,680 px
+              - group "Spatial XR video" [ref=e9026]:
+                - generic [ref=e9029]: Spatial XR video
+                - generic [ref=e9034]:
+                  - generic [ref=e9036]:
+                    - generic:
+                      - generic:
+                        - generic: https://www.youtube.com/watch?v=
+                    - textbox "https://www.youtube.com/watch?v=" [ref=e9037]
+                  - paragraph [ref=e9039]:
+                    - generic [ref=e9041]:
+                      - text: Add a
+                      - link "spatial XR video" [ref=e9042] [cursor=pointer]:
+                        - /url: https://support.google.com/googleplay/android-developer/answer/9866151#zippy=%2Cpreview-video
+                      - text: for an immersive preview of your features by entering a YouTube URL. This video must be in 360°, 180°, or 3D, be public or unlisted, ads must be turned off, and it must not be age restricted.
+              - group "Non-spatial XR video" [ref=e9044]:
+                - generic [ref=e9047]: Non-spatial XR video
+                - generic [ref=e9052]:
+                  - generic [ref=e9054]:
+                    - generic:
+                      - generic:
+                        - generic: https://www.youtube.com/watch?v=
+                    - textbox "https://www.youtube.com/watch?v=" [ref=e9055]
+                  - paragraph [ref=e9057]:
+                    - generic [ref=e9058]: Add a non-spatial XR video by entering a YouTube URL. This video must be public or unlisted, ads must be turned off, and it must not be age restricted.
+        - generic [ref=e9062]:
+          - generic [ref=e9085]: If you save, changes will be saved in Publishing overview, ready for you to send for review
+          - generic [ref=e9065]:
+            - button "Discard" [ref=e9087]:
+              - generic [ref=e9090]: Discard
+            - generic [ref=e9072]:
+              - button "Save as draft" [ref=e9092]:
+                - generic [ref=e9095]: Save as draft
+              - button "Save" [ref=e9097]:
+                - generic [ref=e9100]: Save
+      - generic [ref=e405]:
+        - generic [ref=e406]:
+          - link "Product updates" [ref=e407] [cursor=pointer]:
+            - /url: https://play.google.com/console/about/whats-new/
+          - link "Status dashboard" [ref=e408] [cursor=pointer]:
+            - /url: https://status.play.google.com/
+          - link "Help" [ref=e409] [cursor=pointer]:
+            - /url: /console/u/0/developers/8694059111226962711/help-and-support?app=4973176299267570701
+        - generic [ref=e410]:
+          - generic [ref=e411]: © 2026 Google
+          - link "Privacy" [ref=e412] [cursor=pointer]:
+            - /url: https://www.google.com/policies/privacy/
+          - link "Developer Distribution Agreement" [ref=e413] [cursor=pointer]:
+            - /url: https://play.google.com/about/developer-distribution-agreement.html
+          - link "Terms of Service" [ref=e414] [cursor=pointer]:
+            - /url: https://play.google.com/about/console/terms-of-service/
+  - status [ref=e2662]
