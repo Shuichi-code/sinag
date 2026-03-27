@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinag - Solar Calculator para sa Davao</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber-50: #FFF8E1;
+    --amber-100: #FFECB3;
+    --amber-400: #FFCA28;
+    --amber-500: #FFC107;
+    --amber-600: #FFB300;
+    --amber-700: #FFA000;
+    --orange-600: #FB8C00;
+    --orange-800: #E65100;
+    --brown-900: #3E2723;
+    --text: #1a1a1a;
+    --text-light: #555;
+    --bg: #FFFDF7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #FF8F00 0%, #F57C00 30%, #EF6C00 60%, #E65100 100%);
+    padding: 60px 24px 48px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,213,79,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-icon {
+    width: 100px; height: 100px;
+    border-radius: 24px;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .hero .tagline {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.95;
+    margin-bottom: 6px;
+  }
+
+  .hero .sub {
+    font-size: 14px;
+    opacity: 0.8;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Screenshots carousel */
+  .screenshots {
+    padding: 32px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .screenshots::-webkit-scrollbar { display: none; }
+
+  .screenshots-inner {
+    display: flex;
+    gap: 16px;
+    padding: 0 24px;
+    width: max-content;
+  }
+
+  .screenshots img {
+    height: 380px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    flex-shrink: 0;
+  }
+
+  /* How it works */
+  .section {
+    padding: 40px 24px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--brown-900);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--amber-500), var(--orange-600));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .step-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .step-text p {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+
+  /* Features */
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .feature {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .feature-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .feature h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .feature p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--amber-50), #FFF3E0);
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--brown-900);
+    margin-bottom: 8px;
+  }
+
+  .cta-section .cta-sub {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-form {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .cta-form input[type="email"] {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--amber-400);
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .cta-form input[type="email"]:focus {
+    border-color: var(--orange-600);
+  }
+
+  .cta-form input[type="email"]::placeholder {
+    color: #aaa;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #FF8F00, #E65100);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 16px rgba(230,81,0,0.3);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(230,81,0,0.4);
+  }
+
+  .cta-btn:active {
+    transform: translateY(0);
+  }
+
+  .cta-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 12px;
+  }
+
+  .success-msg {
+    display: none;
+    background: #E8F5E9;
+    color: #2E7D32;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  /* Privacy */
+  .privacy-strip {
+    padding: 24px;
+    text-align: center;
+  }
+
+  .privacy-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .privacy-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .privacy-item .check {
+    color: #4CAF50;
+    font-weight: 800;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #aaa;
+    border-top: 1px solid #eee;
+  }
+
+  footer a {
+    color: #999;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="sinag-icon-notext-512.png" alt="Sinag app icon" class="hero-icon">
+  <h1>Sinag</h1>
+  <p class="tagline">Solar Calculator para sa Davao</p>
+  <p class="sub">I-scan ang iyong DLPC electric bill. Makakuha ng personalized solar estimate.</p>
+  <span class="badge">100% FREE</span>
+</div>
+
+<!-- Screenshots -->
+<div class="screenshots">
+  <div class="screenshots-inner">
+    <img src="screenshots/sinag_home.png" alt="Sinag home screen">
+    <img src="screenshots/sinag_home_scroll.png" alt="Sinag features">
+    <img src="screenshots/sinag_screen2.png" alt="Manual entry form">
+    <img src="screenshots/sinag_ready.png" alt="Ready to calculate">
+  </div>
+</div>
+
+<!-- How It Works -->
+<div class="section">
+  <h2 class="section-title">Paano gamitin?</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <h3>Kunan ng photo ang DLPC bill mo</h3>
+        <p>Automatic na mababasa ng Sinag ang iyong electric bill gamit ang camera ng phone mo.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <h3>Makakuha ng solar estimate</h3>
+        <p>System size, presyo, at complete na Bill of Materials — panels, inverter, battery, at iba pa.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <h3>Alamin ang savings at ROI</h3>
+        <p>Makita kung magkano ang matitipid mo bawat buwan at kailan mag-babayad ang sistema.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features -->
+<div class="section">
+  <h2 class="section-title">Bakit Sinag?</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">&#9728;&#65039;</div>
+      <h3>Gawa para sa Davao</h3>
+      <p>DLPC-specific na rates at real na solar irradiance data mula sa NASA para sa Davao region.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">&#128176;</div>
+      <h3>3 Pricing Tiers</h3>
+      <p>Budget, Mid-Range, at Premium — may local na pricing kasama ang Davao discount.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">&#128274;</div>
+      <h3>Private at Secure</h3>
+      <p>Ang bill photo mo ay nananatili sa phone mo. Walang account needed, walang ads, walang tracking.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">&#128247;</div>
+      <h3>Bill Scanning via OCR</h3>
+      <p>Unang solar calculator app sa Pilipinas na may automatic bill scanning — hindi na kailangan mag-type ng bill details.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section" id="join">
+  <h2>Maging isa sa mga unang mag-try!</h2>
+  <p class="cta-sub">Nag-hahanap kami ng taga-Davao na mag-test ng Sinag bago ang official launch. I-enter ang Gmail mo para maka-join.</p>
+
+  <div class="cta-form">
+    <form id="waitlist-form" action="https://formsubmit.co/sinagapp.ph@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Sinag Waitlist Signup">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="">
+      <input type="email" name="email" placeholder="Ang Gmail address mo" required>
+      <button type="submit" class="cta-btn">Mag-sign up bilang Tester</button>
+    </form>
+    <div class="success-msg" id="success-msg">
+      Salamat! Ma-email ka namin ng link para ma-download ang Sinag.
+    </div>
+    <p class="cta-note">Gmail address lang ang kailangan — ito ang gagamitin para ma-access ang app sa Google Play.</p>
+  </div>
+</div>
+
+<!-- Privacy strip -->
+<div class="privacy-strip">
+  <div class="privacy-items">
+    <span class="privacy-item"><span class="check">&#10003;</span> No ads</span>
+    <span class="privacy-item"><span class="check">&#10003;</span> No tracking</span>
+    <span class="privacy-item"><span class="check">&#10003;</span> No account needed</span>
+    <span class="privacy-item"><span class="check">&#10003;</span> 100% free</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Sinag - Solar Calculator &copy; 2026</p>
+  <p><a href="privacy-policy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+  // Set the _next redirect to the current page with a success param
+  const form = document.getElementById('waitlist-form');
+  const nextInput = form.querySelector('input[name="_next"]');
+  nextInput.value = window.location.href.split('?')[0] + '?signed-up=true';
+
+  // Check if redirected back after signup
+  if (window.location.search.includes('signed-up=true')) {
+    form.style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    document.querySelector('.cta-note').style.display = 'none';
+  }
+</script>
+</body>
+</html>
