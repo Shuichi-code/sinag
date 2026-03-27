@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Sinag Solar — Material Design 3 Stitch Palette -->
+
+    <!-- Primary -->
+    <Color x:Key="Primary">#8d5900</Color>
+    <Color x:Key="PrimaryDim">#7d4e00</Color>
+    <Color x:Key="PrimaryContainer">#f8a010</Color>
+    <Color x:Key="OnPrimary">#ffffff</Color>
+    <Color x:Key="OnPrimaryContainer">#4a2c00</Color>
+    <Color x:Key="OnPrimaryFixed">#2a1700</Color>
+    <Color x:Key="PrimaryFixed">#f8a010</Color>
+    <Color x:Key="PrimaryFixedDim">#e79400</Color>
+    <Color x:Key="InversePrimary">#f8a010</Color>
+
+    <!-- Secondary -->
+    <Color x:Key="Secondary">#4b658d</Color>
+    <Color x:Key="SecondaryDim">#3f5980</Color>
+    <Color x:Key="SecondaryContainer">#b9d3ff</Color>
+    <Color x:Key="OnSecondary">#ffffff</Color>
+    <Color x:Key="OnSecondaryContainer">#2d486e</Color>
+    <Color x:Key="SecondaryFixed">#b9d3ff</Color>
+    <Color x:Key="SecondaryFixedDim">#aac5f2</Color>
+
+    <!-- Tertiary -->
+    <Color x:Key="Tertiary">#00734e</Color>
+    <Color x:Key="TertiaryDim">#006544</Color>
+    <Color x:Key="TertiaryContainer">#69f6b8</Color>
+    <Color x:Key="OnTertiary">#ffffff</Color>
+    <Color x:Key="OnTertiaryContainer">#005a3c</Color>
+    <Color x:Key="TertiaryFixed">#69f6b8</Color>
+    <Color x:Key="TertiaryFixedDim">#58e7ab</Color>
+
+    <!-- Error -->
+    <Color x:Key="Error">#be2d06</Color>
+    <Color x:Key="ErrorDim">#b92902</Color>
+    <Color x:Key="ErrorContainer">#f95630</Color>
+    <Color x:Key="OnError">#ffffff</Color>
+    <Color x:Key="OnErrorContainer">#520c00</Color>
+
+    <!-- Surface hierarchy -->
+    <Color x:Key="Surface">#fffbff</Color>
+    <Color x:Key="SurfaceBright">#fffbff</Color>
+    <Color x:Key="SurfaceDim">#e7e3ce</Color>
+    <Color x:Key="SurfaceContainerLowest">#ffffff</Color>
+    <Color x:Key="SurfaceContainerLow">#fefae8</Color>
+    <Color x:Key="SurfaceContainer">#f8f4e2</Color>
+    <Color x:Key="SurfaceContainerHigh">#f2eedb</Color>
+    <Color x:Key="SurfaceContainerHighest">#ece9d4</Color>
+    <Color x:Key="SurfaceVariant">#ece9d4</Color>
+    <Color x:Key="SurfaceTint">#8d5900</Color>
+    <Color x:Key="InverseSurface">#0f0f06</Color>
+    <Color x:Key="InverseOnSurface">#a09d8f</Color>
+
+    <!-- On Surface -->
+    <Color x:Key="OnSurface">#39382d</Color>
+    <Color x:Key="OnSurfaceVariant">#666558</Color>
+    <Color x:Key="Background">#fffbff</Color>
+    <Color x:Key="OnBackground">#39382d</Color>
+
+    <!-- Outline -->
+    <Color x:Key="Outline">#838174</Color>
+    <Color x:Key="OutlineVariant">#bcb9ab</Color>
+
+    <!-- Legacy compatibility keys used by Styles.xaml -->
+    <Color x:Key="White">#ffffff</Color>
+    <Color x:Key="Black">#000000</Color>
+    <Color x:Key="OffBlack">#1f1f1f</Color>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="PrimaryContainerBrush" Color="{StaticResource PrimaryContainer}"/>
+    <SolidColorBrush x:Key="SecondaryContainerBrush" Color="{StaticResource SecondaryContainer}"/>
+    <SolidColorBrush x:Key="TertiaryContainerBrush" Color="{StaticResource TertiaryContainer}"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource Surface}"/>
+    <SolidColorBrush x:Key="SurfaceContainerLowBrush" Color="{StaticResource SurfaceContainerLow}"/>
+    <SolidColorBrush x:Key="OnSurfaceBrush" Color="{StaticResource OnSurface}"/>
+    <SolidColorBrush x:Key="OutlineVariantBrush" Color="{StaticResource OutlineVariant}"/>
+
+</ResourceDictionary>

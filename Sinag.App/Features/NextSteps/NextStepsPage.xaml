@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Sinag.App.Features.NextSteps"
+             xmlns:models="clr-namespace:Sinag.App.Models"
+             xmlns:l="clr-namespace:Sinag.App.Helpers"
+             x:Class="Sinag.App.Features.NextSteps.NextStepsPage"
+             x:DataType="vm:NextStepsViewModel"
+             Title="{l:Translate Next_Title}"
+             BackgroundColor="{StaticResource Surface}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- Guidance Section — Bento Cards -->
+            <VerticalStackLayout Padding="20,20,20,24" Spacing="12">
+
+                <!-- Step 1 — Large lead card -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16"
+                        Padding="24">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource PrimaryBrush}"
+                                Offset="0,12" Radius="32" Opacity="0.08"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="01"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="48"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Primary}"
+                               Opacity="0.1"/>
+                        <Label Text="{l:Translate Next_Step1Title}"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnSurface}"/>
+                        <Label Text="{l:Translate Next_Step1Desc}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="14"
+                               TextColor="{StaticResource OnSurfaceVariant}"
+                               LineHeight="1.6"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Steps 2 & 3 side-by-side -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+
+                    <!-- Step 2 -->
+                    <Border BackgroundColor="{StaticResource SurfaceContainerHighest}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="16">
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource PrimaryBrush}"
+                                    Offset="0,12" Radius="32" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="02"
+                                   FontFamily="PlusJakartaSans"
+                                   FontSize="32"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Primary}"
+                                   Opacity="0.2"/>
+                            <Label Text="{l:Translate Next_Step2Title}"
+                                   FontFamily="PlusJakartaSans"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource OnSurface}"/>
+                            <Label Text="{l:Translate Next_Step2Desc}"
+                                   FontFamily="BeVietnamProRegular"
+                                   FontSize="12"
+                                   TextColor="{StaticResource OnSurfaceVariant}"
+                                   LineHeight="1.5"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Step 3 -->
+                    <Border Grid.Column="1"
+                            BackgroundColor="{StaticResource TertiaryContainer}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="16">
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource PrimaryBrush}"
+                                    Offset="0,12" Radius="32" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="03"
+                                   FontFamily="PlusJakartaSans"
+                                   FontSize="32"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource OnTertiaryContainer}"
+                                   Opacity="0.3"/>
+                            <Label Text="{l:Translate Next_Step3Title}"
+                                   FontFamily="PlusJakartaSans"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource OnTertiaryContainer}"/>
+                            <Label Text="{l:Translate Next_Step3Desc}"
+                                   FontFamily="BeVietnamProRegular"
+                                   FontSize="12"
+                                   TextColor="{StaticResource OnTertiaryContainer}"
+                                   LineHeight="1.5"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- Installer Directory -->
+            <VerticalStackLayout Padding="20,0,20,8" Spacing="8">
+                <Label Text="{l:Translate Next_InstallerDir}"
+                       FontFamily="PlusJakartaSans"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource OnSurface}"/>
+                <Label Text="{l:Translate Next_InstallerSubtitle}"
+                       FontFamily="BeVietnamProRegular"
+                       FontSize="13"
+                       TextColor="{StaticResource OnSurfaceVariant}"
+                       Margin="0,0,0,8"/>
+            </VerticalStackLayout>
+
+            <CollectionView ItemsSource="{Binding Installers}"
+                            Margin="20,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:InstallerInfo">
+                        <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="16"
+                                Margin="0,4">
+                            <Border.Shadow>
+                                <Shadow Brush="{StaticResource PrimaryBrush}"
+                                        Offset="0,8" Radius="24" Opacity="0.06"/>
+                            </Border.Shadow>
+                            <VerticalStackLayout Spacing="8">
+                                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                    <!-- Icon circle -->
+                                    <Border BackgroundColor="{StaticResource SurfaceContainerHighest}"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 9999"
+                                            WidthRequest="44" HeightRequest="44">
+                                        <Label Text="☀"
+                                               FontSize="20"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"/>
+                                    </Border>
+
+                                    <!-- Name -->
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                        <Label Text="{Binding Name}"
+                                               FontFamily="PlusJakartaSans"
+                                               FontSize="16"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource OnSurface}"/>
+                                        <Label Text="{Binding Description}"
+                                               FontFamily="BeVietnamProRegular"
+                                               FontSize="11"
+                                               TextColor="{StaticResource OnSurfaceVariant}"/>
+                                    </VerticalStackLayout>
+
+                                    <!-- DOE Badge -->
+                                    <Border Grid.Column="2"
+                                            BackgroundColor="{StaticResource Tertiary}"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 9999"
+                                            Padding="8,4"
+                                            IsVisible="{Binding IsDoeAccredited}"
+                                            VerticalOptions="Center">
+                                        <Label Text="DOE ✓"
+                                               FontFamily="BeVietnamProBold"
+                                               FontSize="9"
+                                               TextColor="{StaticResource OnTertiary}"/>
+                                    </Border>
+                                </Grid>
+
+                                <!-- Contact actions -->
+                                <HorizontalStackLayout Spacing="16" Padding="56,0,0,0">
+                                    <Label Text="{l:Translate Next_Call}"
+                                           FontFamily="BeVietnamProMedium"
+                                           FontSize="13"
+                                           TextColor="{StaticResource Primary}"
+                                           IsVisible="{Binding Phone, Converter={x:Null}}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:NextStepsViewModel}}, Path=CallInstallerCommand}"
+                                                CommandParameter="{Binding .}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <Label Text="{l:Translate Next_Website}"
+                                           FontFamily="BeVietnamProMedium"
+                                           FontSize="13"
+                                           TextColor="{StaticResource Primary}"
+                                           IsVisible="{Binding Website, Converter={x:Null}}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:NextStepsViewModel}}, Path=OpenWebsiteCommand}"
+                                                CommandParameter="{Binding .}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Disclaimer -->
+            <Label Text="{l:Translate Next_Disclaimer}"
+                   FontFamily="BeVietnamProRegular"
+                   FontSize="11"
+                   TextColor="{StaticResource OnSurfaceVariant}"
+                   FontAttributes="Italic"
+                   HorizontalTextAlignment="Center"
+                   Margin="20,16,20,0"/>
+
+            <!-- Back to Home Button -->
+            <Button Text="{l:Translate Next_GoHome}"
+                    Command="{Binding GoHomeCommand}"
+                    BackgroundColor="{StaticResource PrimaryContainer}"
+                    TextColor="{StaticResource OnPrimaryContainer}"
+                    FontFamily="PlusJakartaSans"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    CornerRadius="9999"
+                    HeightRequest="52"
+                    Margin="20,16,20,8">
+                <Button.Shadow>
+                    <Shadow Brush="{StaticResource PrimaryBrush}"
+                            Offset="0,12" Radius="32" Opacity="0.12"/>
+                </Button.Shadow>
+            </Button>
+
+            <!-- Footer -->
+            <VerticalStackLayout BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                 Padding="24,20,24,32"
+                                 Spacing="8"
+                                 Margin="0,16,0,0">
+                <Label Text="Sinag"
+                       FontFamily="PlusJakartaSans"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalOptions="Center"/>
+                <Label Text="{l:Translate Copyright}"
+                       FontFamily="BeVietnamProRegular"
+                       FontSize="11"
+                       TextColor="{StaticResource OnSurfaceVariant}"
+                       HorizontalOptions="Center"
+                       Opacity="0.7"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

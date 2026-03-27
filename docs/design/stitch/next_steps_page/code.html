@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sinag - Susunod na Hakbang</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Plus Jakarta Sans & Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fffbff",
+              "surface-container-high": "#f2eedb",
+              "on-error": "#ffffff",
+              "surface-tint": "#8d5900",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#e79400",
+              "surface-bright": "#fffbff",
+              "surface-dim": "#e7e3ce",
+              "error-dim": "#b92902",
+              "tertiary": "#00734e",
+              "inverse-on-surface": "#a09d8f",
+              "on-primary-fixed": "#2a1700",
+              "on-tertiary-fixed-variant": "#006544",
+              "inverse-primary": "#f8a010",
+              "primary-container": "#f8a010",
+              "surface-container-highest": "#ece9d4",
+              "secondary": "#4b658d",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#375178",
+              "on-primary-container": "#4a2c00",
+              "on-error-container": "#520c00",
+              "tertiary-fixed": "#69f6b8",
+              "secondary-container": "#b9d3ff",
+              "secondary-fixed": "#b9d3ff",
+              "surface": "#fffbff",
+              "on-surface": "#39382d",
+              "on-surface-variant": "#666558",
+              "on-secondary-fixed": "#18355a",
+              "on-background": "#39382d",
+              "outline-variant": "#bcb9ab",
+              "surface-container-low": "#fefae8",
+              "secondary-fixed-dim": "#aac5f2",
+              "tertiary-container": "#69f6b8",
+              "surface-variant": "#ece9d4",
+              "on-secondary": "#ffffff",
+              "tertiary-dim": "#006544",
+              "on-tertiary-fixed": "#00452d",
+              "primary": "#8d5900",
+              "on-tertiary-container": "#005a3c",
+              "inverse-surface": "#0f0f06",
+              "tertiary-fixed-dim": "#58e7ab",
+              "on-secondary-container": "#2d486e",
+              "primary-fixed": "#f8a010",
+              "error": "#be2d06",
+              "on-primary-fixed-variant": "#563400",
+              "outline": "#838174",
+              "secondary-dim": "#3f5980",
+              "primary-dim": "#7d4e00",
+              "error-container": "#f95630",
+              "surface-container": "#f8f4e2"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 251, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+      .gradient-button {
+        background: linear-gradient(135deg, #8d5900 0%, #f8a010 100%);
+      }
+      .shadow-ambient {
+        box-shadow: 0px 12px 32px rgba(141, 89, 0, 0.08);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full bg-[#fefae8] px-6 h-16 flex justify-between items-center transition-opacity hover:opacity-80">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-150 text-[#8d5900]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-lg font-semibold tracking-tight text-[#39382d]">Ano ang Susunod?</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-2xl font-bold text-[#8d5900] tracking-tighter">Sinag</span>
+<span class="material-symbols-outlined text-[#8d5900]" data-icon="wb_sunny">wb_sunny</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto">
+<!-- Guidance Section: Bento Style -->
+<section class="mb-16">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Large Lead Card -->
+<div class="md:col-span-12 lg:col-span-5 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between shadow-ambient relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary-container/10 rounded-full blur-3xl"></div>
+<div>
+<span class="font-headline font-bold text-6xl text-primary/10 mb-4 block">01</span>
+<h2 class="font-headline text-2xl font-bold text-on-surface mb-4">Review with family.</h2>
+<p class="text-on-surface-variant leading-relaxed">Ibahagi ang iyong mga natuklasan sa calculator. Siguraduhin na ang buong pamilya ay handa para sa pagbabago sa inyong enerhiya.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="md:col-span-6 lg:col-span-3 bg-surface-container-highest p-8 rounded-xl flex flex-col shadow-ambient border-l-4 border-primary">
+<span class="font-headline font-bold text-4xl text-primary/20 mb-4 block">02</span>
+<h2 class="font-headline text-xl font-bold text-on-surface mb-3">Contact installer for survey.</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed">Mag-schedule ng site visit para masuri ang inyong bubong at kuryente.</p>
+</div>
+<!-- Step 3 -->
+<div class="md:col-span-6 lg:col-span-4 bg-tertiary-container p-8 rounded-xl flex flex-col shadow-ambient">
+<span class="font-headline font-bold text-4xl text-on-tertiary-container/30 mb-4 block">03</span>
+<h2 class="font-headline text-xl font-bold text-on-tertiary-container mb-3">Compare quotations.</h2>
+<p class="text-sm text-on-tertiary-container leading-relaxed">Huwag magmadali. Suriin ang warranty, presyo, at serbisyo ng bawat solar company.</p>
+</div>
+</div>
+</section>
+<!-- Installer Directory Section -->
+<section class="mb-12">
+<div class="flex items-end justify-between mb-8">
+<div class="max-w-md">
+<h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface">Mga Solar Installer sa Davao</h2>
+<p class="text-on-surface-variant mt-2">Mga pinagkakatiwalaang eksperto para sa iyong tahanan.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Sunstruck (Featured) -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-ambient border-2 border-primary-container relative group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="solar_power">solar_power</span>
+</div>
+<span class="bg-tertiary text-on-tertiary text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                            DOE ACCREDITED
+                        </span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1">Sunstruck</h3>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Premium Solar Solutions</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/20 pt-4">
+<button class="flex items-center gap-2 text-primary hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="phone_in_talk">phone_in_talk</span>
+</button>
+<button class="flex items-center gap-2 text-primary hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="language">language</span>
+</button>
+</div>
+</div>
+<!-- Electro-Jake -->
+<div class="bg-surface-container-low p-6 rounded-lg shadow-ambient group hover:bg-surface-container-highest transition-colors duration-300">
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="electric_bolt">electric_bolt</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1">Electro-Jake</h3>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Electrical &amp; Solar Experts</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/10 pt-4">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="call">call</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+<!-- MPPT -->
+<div class="bg-surface-container-low p-6 rounded-lg shadow-ambient group hover:bg-surface-container-highest transition-colors duration-300">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1">MPPT</h3>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Efficiency Driven Tech</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/10 pt-4">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="call">call</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+<!-- Solar Powerhaus -->
+<div class="bg-surface-container-low p-6 rounded-lg shadow-ambient group hover:bg-surface-container-highest transition-colors duration-300">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="home_storage">home_storage</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1">Solar Powerhaus</h3>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Residential Solar Specialists</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/10 pt-4">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="call">call</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+<!-- Flaretech -->
+<div class="bg-surface-container-low p-6 rounded-lg shadow-ambient group hover:bg-surface-container-highest transition-colors duration-300">
+<div class="w-12 h-12 rounded-full bg-error-container/20 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-error" data-icon="flare">flare</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1">Flaretech</h3>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Rapid Response Installation</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/10 pt-4">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="call">call</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+<!-- Prime Solar -->
+<div class="bg-surface-container-low p-6 rounded-lg shadow-ambient group hover:bg-surface-container-highest transition-colors duration-300">
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="award_star">award_star</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1">Prime Solar</h3>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Top-Tier Equipment</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/10 pt-4">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="call">call</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+<!-- WCTI -->
+<div class="bg-surface-container-low p-6 rounded-lg shadow-ambient group hover:bg-surface-container-highest transition-colors duration-300">
+<div class="w-12 h-12 rounded-full bg-on-surface-variant/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface" data-icon="domain">domain</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-1">WCTI</h3>
+<p class="text-xs text-on-surface-variant font-medium mb-6">Industrial &amp; Commercial Solar</p>
+<div class="flex items-center gap-4 border-t border-outline-variant/10 pt-4">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="call">call</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Action -->
+<footer class="fixed bottom-0 w-full p-8 bg-[#f2eedb] flex flex-col items-center gap-4 shadow-[0_-10px_30px_rgba(0,0,0,0.03)] border-t border-outline-variant/10">
+<button class="gradient-button text-on-primary font-headline font-bold px-12 py-4 rounded-full shadow-ambient active:scale-95 transition-all w-full max-w-sm">
+            Bumalik sa Home
+        </button>
+<p class="font-body text-xs leading-relaxed text-stone-500">© 2024 Sinag Solar. Crafted for Davao City.</p>
+<div class="flex gap-6">
+<a class="text-xs text-stone-500 hover:text-[#f8a010] transition-colors" href="#">Privacy</a>
+<a class="text-xs text-stone-500 hover:text-[#f8a010] transition-colors" href="#">Terms</a>
+<a class="text-xs text-stone-500 hover:text-[#f8a010] transition-colors" href="#">Support</a>
+</div>
+</footer>
+</body></html>

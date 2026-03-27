@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sinag - Solar Estimate para sa Davao</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fffbff",
+              "surface-container-high": "#f2eedb",
+              "on-error": "#ffffff",
+              "surface-tint": "#8d5900",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#e79400",
+              "surface-bright": "#fffbff",
+              "surface-dim": "#e7e3ce",
+              "error-dim": "#b92902",
+              "tertiary": "#00734e",
+              "inverse-on-surface": "#a09d8f",
+              "on-primary-fixed": "#2a1700",
+              "on-tertiary-fixed-variant": "#006544",
+              "inverse-primary": "#f8a010",
+              "primary-container": "#f8a010",
+              "surface-container-highest": "#ece9d4",
+              "secondary": "#4b658d",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#375178",
+              "on-primary-container": "#4a2c00",
+              "on-error-container": "#520c00",
+              "tertiary-fixed": "#69f6b8",
+              "secondary-container": "#b9d3ff",
+              "secondary-fixed": "#b9d3ff",
+              "surface": "#fffbff",
+              "on-surface": "#39382d",
+              "on-surface-variant": "#666558",
+              "on-secondary-fixed": "#18355a",
+              "on-background": "#39382d",
+              "outline-variant": "#bcb9ab",
+              "surface-container-low": "#fefae8",
+              "secondary-fixed-dim": "#aac5f2",
+              "tertiary-container": "#69f6b8",
+              "surface-variant": "#ece9d4",
+              "on-secondary": "#ffffff",
+              "tertiary-dim": "#006544",
+              "on-tertiary-fixed": "#00452d",
+              "primary": "#8d5900",
+              "on-tertiary-container": "#005a3c",
+              "inverse-surface": "#0f0f06",
+              "tertiary-fixed-dim": "#58e7ab",
+              "on-secondary-container": "#2d486e",
+              "primary-fixed": "#f8a010",
+              "error": "#be2d06",
+              "on-primary-fixed-variant": "#563400",
+              "outline": "#838174",
+              "secondary-dim": "#3f5980",
+              "primary-dim": "#7d4e00",
+              "error-container": "#f95630",
+              "surface-container": "#f8f4e2"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #fffbff; }
+        .font-plus-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-be-vietnam { font-family: 'Be Vietnam Pro', sans-serif; }
+        .sun-gradient { background: linear-gradient(135deg, #8d5900 0%, #f8a010 100%); }
+        .glass-header { backdrop-filter: blur(20px); background-color: rgba(255, 251, 255, 0.8); }
+        .sun-ray-bg {
+            background-image: radial-gradient(circle at 100% 0%, rgba(248, 160, 16, 0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 0% 100%, rgba(141, 89, 0, 0.05) 0%, transparent 40%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container sun-ray-bg min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<nav class="fixed top-0 z-50 w-full glass-header">
+<div class="flex justify-between items-center w-full px-6 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#8d5900] text-3xl" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+<span class="text-2xl font-bold text-[#8d5900] tracking-tighter font-plus-jakarta">Sinag</span>
+</div>
+<div class="hidden md:flex gap-6">
+<a class="text-[#8d5900] font-semibold font-plus-jakarta hover:opacity-80 transition-opacity" href="#">Home</a>
+<a class="text-[#39382d] font-medium font-plus-jakarta hover:opacity-80 transition-opacity" href="#">Calculator</a>
+<a class="text-[#39382d] font-medium font-plus-jakarta hover:opacity-80 transition-opacity" href="#">About</a>
+</div>
+<button class="text-[#8d5900] p-2 hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="wb_sunny">wb_sunny</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow pt-24 pb-12 px-6 max-w-7xl mx-auto w-full">
+<!-- Hero Section -->
+<section class="relative py-12 md:py-20 flex flex-col items-center text-center">
+<div class="mb-6 inline-block px-4 py-1.5 rounded-full bg-surface-container-low text-primary font-label text-sm font-bold tracking-widest uppercase">
+                Davao City Energy
+            </div>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface tracking-tight mb-4 max-w-3xl">
+                Solar Estimate para sa <span class="text-primary">Davao</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+                Gawing katuwang ang araw. Tuklasin kung gaano kalaki ang matitipid mo sa kuryente gamit ang aming matalinong solar calculator.
+            </p>
+<!-- Primary CTA: The Sun of the Screen -->
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary-container opacity-20 blur-2xl group-hover:opacity-30 transition-opacity rounded-full"></div>
+<button class="relative sun-gradient text-on-primary px-10 py-6 rounded-full flex items-center gap-4 shadow-[0px_12px_32px_rgba(141,89,0,0.15)] hover:scale-105 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+<span class="font-headline text-xl font-bold">I-scan ang Iyong Bill</span>
+</button>
+</div>
+<button class="mt-8 text-primary font-medium hover:underline transition-all flex items-center gap-2">
+                O mag-type ng manual
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</section>
+<!-- Bento Layout / How It Works -->
+<section class="mt-20">
+<div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+<h2 class="font-headline text-3xl font-bold text-on-surface">Paano Ito Gumagana</h2>
+<div class="h-1 w-24 bg-tertiary-container rounded-full hidden md:block"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-transparent hover:border-outline-variant/20 transition-all group overflow-hidden relative">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="bg-surface-container-lowest w-14 h-14 rounded-lg flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">camera_enhance</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-3">I-scan</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">
+                        Kunan ng litrato ang iyong electric bill. Babasahin ng aming AI ang iyong konsumo nang mabilisan.
+                    </p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-transparent hover:border-outline-variant/20 transition-all group overflow-hidden relative">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-container/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="bg-surface-container-lowest w-14 h-14 rounded-lg flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-3xl">fact_check</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-3">Suriin</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">
+                        Tingnan at i-verify ang mga nakuha naming detalye para masiguradong tama ang bawat numero.
+                    </p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-transparent hover:border-outline-variant/20 transition-all group overflow-hidden relative">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+<div class="bg-surface-container-lowest w-14 h-14 rounded-lg flex items-center justify-center mb-6 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl">solar_power</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-3">Resulta</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">
+                        Makakuha ng detalyadong solar estimate, kasama ang laki ng system at kung kailan ito mababawi.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Signature Savings Tease -->
+<section class="mt-16">
+<div class="bg-tertiary-container/30 p-8 md:p-12 rounded-xl flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+<div class="flex-1 z-10">
+<h2 class="font-headline text-2xl md:text-4xl font-extrabold text-on-tertiary-container mb-4">Handa na para sa Davao Sunshine?</h2>
+<p class="text-on-tertiary-container/80 text-lg mb-0">Samahan ang libo-libong pamilya sa Davao na lumipat na sa mas mura at malinis na enerhiya.</p>
+</div>
+<div class="relative z-10 w-full md:w-auto">
+<img class="w-full md:w-80 h-48 object-cover rounded-lg shadow-xl" data-alt="modern tropical house in Davao City with sleek black solar panels on a slanted roof surrounded by palm trees under bright clear sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvR4FIGv_uLeT4v1jRuV0uX6sRQ-or0Mt2jNjj6cz2HGCuIhfUAYhhFoxJx_CgS9AwjzVGtiKFv6gjqtuy8R3g-vxOe8cI4F38oqgVNgtVEkFEEfiPRW7oDHrI9MDtHKk4M93TU-kNjN_CFl9coQouY0McnQNKz_ujwNwlr5TV3rSfdihn-JhzRz6H0MbkjQ2BVQSjFyqVxR1m8pwOdI5vIQ1_0w8AkVYWtnTYVdHMa2Z_pzNHRw8SuWhyLBI2r-cTj0YQIv3WczSK"/>
+</div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-tertiary-container rounded-full blur-3xl opacity-50"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2eedb] dark:bg-stone-900 w-full p-8 flex flex-col items-center gap-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[#8d5900]" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+<span class="text-lg font-bold text-[#8d5900] tracking-tighter font-plus-jakarta">Sinag</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6 mb-4">
+<a class="text-stone-500 font-be-vietnam text-xs leading-relaxed hover:text-[#f8a010] transition-colors duration-200" href="#">Privacy</a>
+<a class="text-stone-500 font-be-vietnam text-xs leading-relaxed hover:text-[#f8a010] transition-colors duration-200" href="#">Terms</a>
+<a class="text-stone-500 font-be-vietnam text-xs leading-relaxed hover:text-[#f8a010] transition-colors duration-200" href="#">Support</a>
+</div>
+<p class="text-stone-500 font-be-vietnam text-xs leading-relaxed text-center opacity-75">
+            © 2024 Sinag Solar. Crafted for Davao City.
+        </p>
+</footer>
+</body></html>

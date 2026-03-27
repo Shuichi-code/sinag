@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="fil"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fffbff",
+              "surface-container-high": "#f2eedb",
+              "on-error": "#ffffff",
+              "surface-tint": "#8d5900",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#e79400",
+              "surface-bright": "#fffbff",
+              "surface-dim": "#e7e3ce",
+              "error-dim": "#b92902",
+              "tertiary": "#00734e",
+              "inverse-on-surface": "#a09d8f",
+              "on-primary-fixed": "#2a1700",
+              "on-tertiary-fixed-variant": "#006544",
+              "inverse-primary": "#f8a010",
+              "primary-container": "#f8a010",
+              "surface-container-highest": "#ece9d4",
+              "secondary": "#4b658d",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#375178",
+              "on-primary-container": "#4a2c00",
+              "on-error-container": "#520c00",
+              "tertiary-fixed": "#69f6b8",
+              "secondary-container": "#b9d3ff",
+              "secondary-fixed": "#b9d3ff",
+              "surface": "#fffbff",
+              "on-surface": "#39382d",
+              "on-surface-variant": "#666558",
+              "on-secondary-fixed": "#18355a",
+              "on-background": "#39382d",
+              "outline-variant": "#bcb9ab",
+              "surface-container-low": "#fefae8",
+              "secondary-fixed-dim": "#aac5f2",
+              "tertiary-container": "#69f6b8",
+              "surface-variant": "#ece9d4",
+              "on-secondary": "#ffffff",
+              "tertiary-dim": "#006544",
+              "on-tertiary-fixed": "#00452d",
+              "primary": "#8d5900",
+              "on-tertiary-container": "#005a3c",
+              "inverse-surface": "#0f0f06",
+              "tertiary-fixed-dim": "#58e7ab",
+              "on-secondary-container": "#2d486e",
+              "primary-fixed": "#f8a010",
+              "error": "#be2d06",
+              "on-primary-fixed-variant": "#563400",
+              "outline": "#838174",
+              "secondary-dim": "#3f5980",
+              "primary-dim": "#7d4e00",
+              "error-container": "#f95630",
+              "surface-container": "#f8f4e2"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Be Vietnam Pro"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-sunshine-gradient {
+            background: linear-gradient(135deg, #8d5900 0%, #f8a010 100%);
+        }
+        .ambient-shadow {
+            box-shadow: 0px 12px 32px rgba(141, 89, 0, 0.08);
+        }
+        .glass-panel {
+            background: rgba(255, 251, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-[#fefae8] h-16 px-6 flex justify-between items-center w-full tonal-shift">
+<div class="flex items-center gap-4">
+<button class="text-[#8d5900] active:scale-95 duration-150 transition-opacity hover:opacity-80">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline text-lg font-semibold tracking-tight text-[#8d5900]">Suriin ang Iyong Bill Data</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#8d5900]" data-icon="wb_sunny">wb_sunny</span>
+</div>
+</header>
+<main class="flex-grow px-6 py-8 max-w-2xl mx-auto w-full">
+<!-- Hero Section Asymmetry -->
+<div class="mb-10 relative">
+<div class="inline-block px-4 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold font-label tracking-wider mb-4">
+                AI SCAN COMPLETE
+            </div>
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight leading-tight">
+                Pakisuri kung <br/> tama ang <span class="text-primary italic underline decoration-primary-container underline-offset-8">impormasyon</span>.
+            </h2>
+<!-- Floating light element -->
+<div class="absolute -top-10 -right-4 w-32 h-32 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
+</div>
+<!-- Form Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 ambient-shadow space-y-8 relative overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- kWh Consumed (Slab Style) -->
+<div class="space-y-2">
+<label class="block font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase">kWh Consumed</label>
+<div class="bg-surface-container-high p-4 rounded-lg flex items-center justify-between">
+<span class="text-xl font-headline font-bold text-on-surface">450</span>
+<span class="text-on-surface-variant font-medium">kWh</span>
+</div>
+</div>
+<!-- Billing Period -->
+<div class="space-y-2">
+<label class="block font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase">Billing Period</label>
+<div class="bg-surface-container-high p-4 rounded-lg flex items-center justify-between">
+<span class="text-xl font-headline font-bold text-on-surface">30 araw</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<!-- Billing Month -->
+<div class="space-y-2">
+<label class="block font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase">Billing Month</label>
+<div class="bg-surface-container-high p-4 rounded-lg flex items-center justify-between">
+<span class="text-xl font-headline font-bold text-on-surface">Marso 2026</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="event">event</span>
+</div>
+</div>
+<!-- Generation Charge (Confidence Highlighting) -->
+<div class="space-y-2">
+<label class="block font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase flex items-center gap-2">
+                        Generation Charge
+                        <span class="text-error font-medium normal-case flex items-center text-[10px]">
+<span class="material-symbols-outlined text-[14px] mr-0.5" data-icon="warning">warning</span> Check Value
+                        </span>
+</label>
+<div class="bg-primary-container/10 border border-primary-container/20 p-4 rounded-lg flex items-center justify-between">
+<span class="text-xl font-headline font-bold text-primary">₱6.52/kWh</span>
+<span class="material-symbols-outlined text-primary" data-icon="edit_square">edit_square</span>
+</div>
+</div>
+</div>
+<!-- Total Amount Due (Large Focus) -->
+<div class="pt-4 border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<label class="block font-label text-xs font-bold text-on-surface-variant tracking-widest uppercase mb-2">Total Amount Due</label>
+<div class="text-5xl font-headline font-extrabold text-on-surface tracking-tighter">
+                            ₱6,215.50
+                        </div>
+</div>
+<!-- Fun Toggle Switch -->
+<div class="flex items-center gap-4 bg-surface-container-high p-3 rounded-full">
+<span class="text-sm font-medium text-on-surface pl-2">Isama ang Battery?</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-8 bg-surface-dim peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-10 flex flex-col gap-4">
+<button class="bg-sunshine-gradient text-white py-5 px-8 rounded-full font-headline font-bold text-lg flex items-center justify-center gap-3 ambient-shadow active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                Mukhang Tama
+            </button>
+<button class="bg-transparent border-2 border-primary/20 text-primary py-4 px-8 rounded-full font-headline font-semibold flex items-center justify-center gap-3 hover:bg-primary/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                I-scan Muli
+            </button>
+</div>
+<!-- Descriptive Visual Fragment -->
+<div class="mt-12 opacity-50 flex items-center justify-center gap-4 text-xs font-label text-on-surface-variant uppercase tracking-[0.2em]">
+<div class="h-px w-12 bg-outline-variant/30"></div>
+<span>Powered by Sinag Davao</span>
+<div class="h-px w-12 bg-outline-variant/30"></div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2eedb] p-8 flex flex-col items-center gap-4 w-full mt-auto">
+<div class="text-lg font-bold text-[#8d5900]">Sinag</div>
+<div class="flex gap-6">
+<a class="font-be-vietnam text-xs leading-relaxed text-stone-500 hover:text-[#f8a010] transition-colors duration-200" href="#">Privacy</a>
+<a class="font-be-vietnam text-xs leading-relaxed text-stone-500 hover:text-[#f8a010] transition-colors duration-200" href="#">Terms</a>
+<a class="font-be-vietnam text-xs leading-relaxed text-stone-500 hover:text-[#f8a010] transition-colors duration-200" href="#">Support</a>
+</div>
+<p class="font-be-vietnam text-xs leading-relaxed text-stone-500">© 2024 Sinag Solar. Crafted for Davao City.</p>
+</footer>
+</body></html>

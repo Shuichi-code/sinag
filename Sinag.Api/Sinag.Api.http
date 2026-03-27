@@ -1,0 +1,6 @@
+@Sinag.Api_HostAddress = http://localhost:5294
+
+GET {{Sinag.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

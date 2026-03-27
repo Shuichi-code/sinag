@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Sinag.App.Features.Review"
+             xmlns:converters="clr-namespace:Sinag.App.Converters"
+             xmlns:l="clr-namespace:Sinag.App.Helpers"
+             x:Class="Sinag.App.Features.Review.ReviewPage"
+             x:DataType="vm:ReviewViewModel"
+             Title="{l:Translate Review_Title}"
+             BackgroundColor="{StaticResource SurfaceContainerLow}">
+
+    <ContentPage.Resources>
+        <converters:ConfidenceToColorConverter x:Key="ConfidenceToColor" />
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Hero Section -->
+                <VerticalStackLayout Padding="24,24,24,16" Spacing="12">
+
+                    <!-- AI Scan badge -->
+                    <Border BackgroundColor="{StaticResource TertiaryContainer}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 20"
+                            Padding="12,6"
+                            HorizontalOptions="Start">
+                        <Label Text="{l:Translate Review_ScanComplete}"
+                               Style="{StaticResource LabelSmall}"
+                               TextColor="{StaticResource OnTertiaryContainer}"/>
+                    </Border>
+
+                    <!-- Editorial headline -->
+                    <Label FontFamily="PlusJakartaSans"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}"
+                           LineHeight="1.1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{l:Translate Review_VerifyPrefix}" FontFamily="PlusJakartaSans" FontSize="28" FontAttributes="Bold"/>
+                                <Span Text="{l:Translate Review_VerifyHighlight}" FontFamily="PlusJakartaSans" FontSize="28" FontAttributes="Bold,Italic" TextColor="{StaticResource Primary}"/>
+                                <Span Text="." FontFamily="PlusJakartaSans" FontSize="28" FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+
+                <!-- Form Card -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16"
+                        Padding="20"
+                        Margin="24,8,24,0">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource PrimaryBrush}"
+                                Offset="0,12" Radius="32" Opacity="0.08"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="20">
+
+                        <!-- kWh Consumed — Slab style -->
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="{l:Translate Review_KwhConsumed}"
+                                   Style="{StaticResource LabelMedium}"
+                                   TextColor="{StaticResource OnSurfaceVariant}"/>
+                            <Border BackgroundColor="{Binding KwhConfidence, Converter={StaticResource ConfidenceToColor}}"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="16,12">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Entry Text="{Binding KwhConsumedText}"
+                                           Keyboard="Numeric"
+                                           Placeholder="{l:Translate Review_KwhPlaceholder}"
+                                           FontFamily="PlusJakartaSans"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource OnSurface}"
+                                           BackgroundColor="Transparent"/>
+                                    <Label Grid.Column="1"
+                                           Text="{l:Translate KwhUnit}"
+                                           FontFamily="BeVietnamProMedium"
+                                           FontSize="14"
+                                           TextColor="{StaticResource OnSurfaceVariant}"
+                                           VerticalOptions="Center"/>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Billing Period — Slab style -->
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="{l:Translate Review_BillingPeriod}"
+                                   Style="{StaticResource LabelMedium}"
+                                   TextColor="{StaticResource OnSurfaceVariant}"/>
+                            <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="16,12">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Entry Text="{Binding BillingPeriodDaysText}"
+                                           Keyboard="Numeric"
+                                           FontFamily="PlusJakartaSans"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource OnSurface}"
+                                           BackgroundColor="Transparent"/>
+                                    <Label Grid.Column="1"
+                                           Text="{l:Translate DaysUnit}"
+                                           FontFamily="BeVietnamProMedium"
+                                           FontSize="14"
+                                           TextColor="{StaticResource OnSurfaceVariant}"
+                                           VerticalOptions="Center"/>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Billing Month -->
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="{l:Translate Review_BillingMonth}"
+                                   Style="{StaticResource LabelMedium}"
+                                   TextColor="{StaticResource OnSurfaceVariant}"/>
+                            <Border BackgroundColor="{Binding BillingMonthConfidence, Converter={StaticResource ConfidenceToColor}}"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="16,8">
+                                <Picker ItemsSource="{Binding Months}"
+                                        SelectedIndex="{Binding SelectedBillingMonthIndex}"
+                                        FontSize="18"
+                                        TextColor="{StaticResource OnSurface}"/>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Generation Charge — with confidence warning -->
+                        <VerticalStackLayout Spacing="6">
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="{l:Translate Review_GenCharge}"
+                                       Style="{StaticResource LabelMedium}"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                            </HorizontalStackLayout>
+                            <Border BackgroundColor="{Binding GenerationChargeConfidence, Converter={StaticResource ConfidenceToColor}}"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="16,12">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Entry Text="{Binding GenerationChargeText}"
+                                           Keyboard="Numeric"
+                                           FontFamily="PlusJakartaSans"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource Primary}"
+                                           BackgroundColor="Transparent"/>
+                                    <Label Grid.Column="1"
+                                           Text="{l:Translate PesoKwhUnit}"
+                                           FontFamily="BeVietnamProMedium"
+                                           FontSize="14"
+                                           TextColor="{StaticResource OnSurfaceVariant}"
+                                           VerticalOptions="Center"/>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Total Amount Due — Large focus -->
+                        <VerticalStackLayout Spacing="6" Padding="0,8,0,0">
+                            <Label Text="{l:Translate Review_TotalAmount}"
+                                   Style="{StaticResource LabelMedium}"
+                                   TextColor="{StaticResource OnSurfaceVariant}"/>
+                            <Border BackgroundColor="{Binding TotalAmountConfidence, Converter={StaticResource ConfidenceToColor}}"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 12"
+                                    Padding="16,12">
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <Label Text="₱"
+                                           FontFamily="PlusJakartaSans"
+                                           FontSize="20"
+                                           TextColor="{StaticResource OnSurfaceVariant}"
+                                           VerticalOptions="Center"
+                                           Margin="0,0,4,0"/>
+                                    <Entry Grid.Column="1"
+                                           Text="{Binding TotalAmountDueText}"
+                                           Keyboard="Numeric"
+                                           Placeholder="{l:Translate Review_TotalPlaceholder}"
+                                           FontFamily="PlusJakartaSans"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource OnSurface}"
+                                           BackgroundColor="Transparent"/>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+
+                        <!-- Battery Toggle -->
+                        <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 9999"
+                                Padding="16,10">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="{l:Translate IncludeBattery}"
+                                       FontFamily="BeVietnamProMedium"
+                                       FontSize="14"
+                                       TextColor="{StaticResource OnSurface}"
+                                       VerticalOptions="Center"/>
+                                <Switch Grid.Column="1"
+                                        IsToggled="{Binding IncludeBattery}"
+                                        VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Action Buttons -->
+                <VerticalStackLayout Padding="24,20,24,32" Spacing="12">
+
+                    <!-- Confirm button -->
+                    <Button Text="{l:Translate Review_Confirm}"
+                            Command="{Binding ConfirmCommand}"
+                            BackgroundColor="{StaticResource PrimaryContainer}"
+                            TextColor="{StaticResource OnPrimaryContainer}"
+                            FontFamily="PlusJakartaSans"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            CornerRadius="9999"
+                            HeightRequest="56">
+                        <Button.Shadow>
+                            <Shadow Brush="{StaticResource PrimaryBrush}"
+                                    Offset="0,12" Radius="32" Opacity="0.12"/>
+                        </Button.Shadow>
+                    </Button>
+
+                    <!-- Rescan button — outline style -->
+                    <Button Text="{l:Translate Review_Rescan}"
+                            Command="{Binding RescanCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource Primary}"
+                            FontFamily="PlusJakartaSans"
+                            FontSize="15"
+                            BorderColor="{StaticResource OutlineVariant}"
+                            BorderWidth="2"
+                            CornerRadius="9999"
+                            HeightRequest="48"/>
+                </VerticalStackLayout>
+
+                <!-- Powered by stamp -->
+                <HorizontalStackLayout HorizontalOptions="Center"
+                                       Spacing="8"
+                                       Opacity="0.4"
+                                       Padding="0,0,0,24">
+                    <BoxView WidthRequest="40" HeightRequest="1"
+                             Color="{StaticResource OutlineVariant}"
+                             VerticalOptions="Center"/>
+                    <Label Text="{l:Translate PoweredBy}"
+                           Style="{StaticResource LabelSmall}"
+                           TextColor="{StaticResource OnSurfaceVariant}"
+                           VerticalOptions="Center"/>
+                    <BoxView WidthRequest="40" HeightRequest="1"
+                             Color="{StaticResource OutlineVariant}"
+                             VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Loading overlay -->
+        <Grid IsVisible="{Binding IsLoading}"
+              BackgroundColor="#80000000">
+            <ActivityIndicator IsRunning="True"
+                               Color="{StaticResource PrimaryContainer}"
+                               HeightRequest="48"
+                               WidthRequest="48"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Sinag.App.Features.Results"
+             xmlns:converters="clr-namespace:Sinag.App.Converters"
+             xmlns:l="clr-namespace:Sinag.App.Helpers"
+             x:Class="Sinag.App.Features.Results.ResultsPage"
+             x:DataType="vm:ResultsViewModel"
+             Title="Sinag"
+             BackgroundColor="{StaticResource Surface}">
+
+    <ContentPage.Resources>
+        <converters:LocalizedFormatConverter x:Key="LocalizedFormat"/>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="0,0,0,32">
+
+            <!-- Celebratory Hero -->
+            <Border BackgroundColor="{StaticResource Primary}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 0,0,16,16"
+                    Padding="24,28">
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource PrimaryBrush}"
+                            Offset="0,12" Radius="32" Opacity="0.15"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="{l:Translate Results_CalcResult}"
+                           FontFamily="BeVietnamProBold"
+                           FontSize="11"
+                           CharacterSpacing="2"
+                           TextColor="{StaticResource OnPrimary}"
+                           Opacity="0.8"/>
+
+                    <Label FontFamily="PlusJakartaSans"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource OnPrimary}"
+                           LineHeight="1.1"
+                           Text="{Binding EstimateResponse.SystemSizeKwp, Converter={StaticResource LocalizedFormat}, ConverterParameter=Results_RecommendedFormat}"/>
+
+                    <Label Text="{l:Translate Results_SunHoursDesc}"
+                           FontFamily="BeVietnamProRegular"
+                           FontSize="14"
+                           TextColor="{StaticResource OnPrimary}"
+                           Opacity="0.9"
+                           LineHeight="1.5"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Financial Highlight / Savings Card -->
+            <Border BackgroundColor="{StaticResource TertiaryContainer}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 16"
+                    Padding="24"
+                    Margin="20,0">
+                <Border.Shadow>
+                    <Shadow Brush="{StaticResource PrimaryBrush}"
+                            Offset="0,12" Radius="32" Opacity="0.08"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="{l:Translate Results_YourBenefits}"
+                           FontFamily="BeVietnamProBold"
+                           FontSize="11"
+                           CharacterSpacing="2"
+                           TextColor="{StaticResource OnTertiaryContainer}"/>
+
+                    <!-- Big savings number -->
+                    <HorizontalStackLayout Spacing="8">
+                        <Label FontFamily="PlusJakartaSans"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnTertiaryContainer}"
+                               Text="{Binding EstimateResponse.Financial.MonthlySavings, Converter={StaticResource LocalizedFormat}, ConverterParameter=Results_MonthlySavingsFormat}"/>
+                        <Label Text="📈"
+                               FontSize="24"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <!-- Payback + 25yr -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{l:Translate Results_PaybackPeriod}"
+                                   FontFamily="BeVietnamProRegular"
+                                   FontSize="12"
+                                   TextColor="{StaticResource OnTertiaryContainer}"
+                                   Opacity="0.7"/>
+                            <Label FontFamily="PlusJakartaSans"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource OnTertiaryContainer}"
+                                   Text="{Binding EstimateResponse.Financial.PaybackPeriodMonths, Converter={StaticResource LocalizedFormat}, ConverterParameter=Results_PaybackFormat}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="{l:Translate Results_25YearSavings}"
+                                   FontFamily="BeVietnamProRegular"
+                                   FontSize="12"
+                                   TextColor="{StaticResource OnTertiaryContainer}"
+                                   Opacity="0.7"/>
+                            <Label FontFamily="PlusJakartaSans"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource OnTertiaryContainer}">
+                                <Label.Text>
+                                    <Binding Path="EstimateResponse.Financial.TwentyFiveYearSavings"
+                                             StringFormat="₱{0:N0}"/>
+                                </Label.Text>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Label FontFamily="BeVietnamProRegular"
+                           FontSize="11"
+                           TextColor="{StaticResource OnTertiaryContainer}"
+                           Opacity="0.6"
+                           FontAttributes="Italic"
+                           Text="{Binding EstimateRequest.GenerationChargePerKwh, Converter={StaticResource LocalizedFormat}, ConverterParameter=Results_BasedOnGenFormat}"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Tier Selector + BOM -->
+            <VerticalStackLayout Padding="20,0" Spacing="12">
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="{l:Translate Results_SystemDetails}"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnSurface}"/>
+                        <Label Text="{l:Translate Results_ChoosePackage}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="13"
+                               TextColor="{StaticResource OnSurfaceVariant}"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- Tier Switcher Pills -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 9999"
+                        Padding="4"
+                        HorizontalOptions="Start">
+                    <HorizontalStackLayout Spacing="4">
+                        <Button Text="{l:Translate Results_Budget}"
+                                Command="{Binding SelectBudgetCommand}"
+                                FontFamily="BeVietnamProMedium"
+                                FontSize="13"
+                                CornerRadius="9999"
+                                HeightRequest="36"
+                                Padding="16,0"
+                                MinimumWidthRequest="0"
+                                BackgroundColor="Transparent"
+                                TextColor="{StaticResource OnSurfaceVariant}"/>
+                        <Button Text="{l:Translate Results_MidRange}"
+                                Command="{Binding SelectMidRangeCommand}"
+                                FontFamily="BeVietnamProBold"
+                                FontSize="13"
+                                CornerRadius="9999"
+                                HeightRequest="36"
+                                Padding="16,0"
+                                MinimumWidthRequest="0"
+                                BackgroundColor="{StaticResource PrimaryContainer}"
+                                TextColor="{StaticResource OnPrimaryContainer}"/>
+                        <Button Text="{l:Translate Results_Premium}"
+                                Command="{Binding SelectPremiumCommand}"
+                                FontFamily="BeVietnamProMedium"
+                                FontSize="13"
+                                CornerRadius="9999"
+                                HeightRequest="36"
+                                Padding="16,0"
+                                MinimumWidthRequest="0"
+                                BackgroundColor="Transparent"
+                                TextColor="{StaticResource OnSurfaceVariant}"/>
+                    </HorizontalStackLayout>
+                </Border>
+
+                <!-- BOM Card -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16"
+                        Padding="20">
+                    <Border.Shadow>
+                        <Shadow Brush="{StaticResource PrimaryBrush}"
+                                Offset="0,12" Radius="32" Opacity="0.08"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="16">
+
+                        <!-- BOM Header -->
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="{l:Translate Results_BOM}"
+                                   FontFamily="PlusJakartaSans"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource OnSurface}"
+                                   VerticalOptions="Center"/>
+                            <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                <Label Text="{l:Translate Results_TotalEstimate}"
+                                       FontFamily="BeVietnamProBold"
+                                       FontSize="9"
+                                       CharacterSpacing="1"
+                                       TextColor="{StaticResource OnSurfaceVariant}"
+                                       HorizontalTextAlignment="End"/>
+                                <Label FontFamily="PlusJakartaSans"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource Primary}"
+                                       HorizontalTextAlignment="End">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="₱{0:N0} - ₱{1:N0}">
+                                            <Binding Path="SelectedTier.TotalEstimate.Min" />
+                                            <Binding Path="SelectedTier.TotalEstimate.Max" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <!-- Solar Panels -->
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,4">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{l:Translate Results_SolarPanels}"
+                                       FontFamily="BeVietnamProBold"
+                                       FontSize="14"
+                                       TextColor="{StaticResource OnSurface}"/>
+                                <Label Text="{Binding SelectedTier.Panels.Spec}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="12"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" FontFamily="BeVietnamProMedium"
+                                   FontSize="13" TextColor="{StaticResource OnSurface}"
+                                   VerticalOptions="Center">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="₱{0:N0} - ₱{1:N0}">
+                                        <Binding Path="SelectedTier.Panels.EstimatedCost.Min" />
+                                        <Binding Path="SelectedTier.Panels.EstimatedCost.Max" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{StaticResource OutlineVariant}" Opacity="0.3"/>
+
+                        <!-- Inverter -->
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,4">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{l:Translate Results_Inverter}"
+                                       FontFamily="BeVietnamProBold"
+                                       FontSize="14"
+                                       TextColor="{StaticResource OnSurface}"/>
+                                <Label Text="{Binding SelectedTier.Inverter.Spec}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="12"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" FontFamily="BeVietnamProMedium"
+                                   FontSize="13" TextColor="{StaticResource OnSurface}"
+                                   VerticalOptions="Center">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="₱{0:N0} - ₱{1:N0}">
+                                        <Binding Path="SelectedTier.Inverter.EstimatedCost.Min" />
+                                        <Binding Path="SelectedTier.Inverter.EstimatedCost.Max" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{StaticResource OutlineVariant}" Opacity="0.3"/>
+
+                        <!-- Battery (conditional) -->
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,4"
+                              IsVisible="{Binding EstimateRequest.IncludeBattery}">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{l:Translate Results_BatteryStorage}"
+                                       FontFamily="BeVietnamProBold"
+                                       FontSize="14"
+                                       TextColor="{StaticResource OnSurface}"/>
+                                <Label Text="{Binding SelectedTier.Battery.Spec}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="12"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" FontFamily="BeVietnamProMedium"
+                                   FontSize="13" TextColor="{StaticResource OnSurface}"
+                                   VerticalOptions="Center">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="₱{0:N0} - ₱{1:N0}">
+                                        <Binding Path="SelectedTier.Battery.EstimatedCost.Min" />
+                                        <Binding Path="SelectedTier.Battery.EstimatedCost.Max" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{StaticResource OutlineVariant}" Opacity="0.3"
+                                 IsVisible="{Binding EstimateRequest.IncludeBattery}"/>
+
+                        <!-- Mounting -->
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,4">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{l:Translate Results_Mounting}"
+                                       FontFamily="BeVietnamProBold"
+                                       FontSize="14"
+                                       TextColor="{StaticResource OnSurface}"/>
+                                <Label Text="{Binding SelectedTier.Mounting.Spec}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="12"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" FontFamily="BeVietnamProMedium"
+                                   FontSize="13" TextColor="{StaticResource OnSurface}"
+                                   VerticalOptions="Center">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="₱{0:N0} - ₱{1:N0}">
+                                        <Binding Path="SelectedTier.Mounting.EstimatedCost.Min" />
+                                        <Binding Path="SelectedTier.Mounting.EstimatedCost.Max" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{StaticResource OutlineVariant}" Opacity="0.3"/>
+
+                        <!-- Wiring -->
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,4">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{l:Translate Results_WiringLabor}"
+                                       FontFamily="BeVietnamProBold"
+                                       FontSize="14"
+                                       TextColor="{StaticResource OnSurface}"/>
+                                <Label Text="{Binding SelectedTier.Wiring.Spec}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="12"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" FontFamily="BeVietnamProMedium"
+                                   FontSize="13" TextColor="{StaticResource OnSurface}"
+                                   VerticalOptions="Center">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="₱{0:N0} - ₱{1:N0}">
+                                        <Binding Path="SelectedTier.Wiring.EstimatedCost.Min" />
+                                        <Binding Path="SelectedTier.Wiring.EstimatedCost.Max" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="{StaticResource OutlineVariant}" Opacity="0.3"/>
+
+                        <!-- Labor -->
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,4">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{l:Translate Results_Labor}"
+                                       FontFamily="BeVietnamProBold"
+                                       FontSize="14"
+                                       TextColor="{StaticResource OnSurface}"/>
+                                <Label Text="{Binding SelectedTier.Labor.Spec}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="12"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" FontFamily="BeVietnamProMedium"
+                                   FontSize="13" TextColor="{StaticResource OnSurface}"
+                                   VerticalOptions="Center">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="₱{0:N0} - ₱{1:N0}">
+                                        <Binding Path="SelectedTier.Labor.EstimatedCost.Min" />
+                                        <Binding Path="SelectedTier.Labor.EstimatedCost.Max" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Disclaimer -->
+                <Label Text="{l:Translate Results_Disclaimer}"
+                       FontFamily="BeVietnamProRegular"
+                       FontSize="11"
+                       TextColor="{StaticResource OnSurfaceVariant}"
+                       FontAttributes="Italic"
+                       HorizontalTextAlignment="Center"
+                       Padding="8,0"/>
+            </VerticalStackLayout>
+
+            <!-- Action Buttons -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12" Padding="20,0">
+                <Button Text="{l:Translate Results_Share}"
+                        Command="{Binding ShareCommand}"
+                        BackgroundColor="{StaticResource PrimaryContainer}"
+                        TextColor="{StaticResource OnPrimaryContainer}"
+                        FontFamily="PlusJakartaSans"
+                        FontSize="15"
+                        FontAttributes="Bold"
+                        CornerRadius="9999"
+                        HeightRequest="52">
+                    <Button.Shadow>
+                        <Shadow Brush="{StaticResource PrimaryBrush}"
+                                Offset="0,12" Radius="32" Opacity="0.12"/>
+                    </Button.Shadow>
+                </Button>
+                <Button Grid.Column="1"
+                        Text="{l:Translate Results_NextSteps}"
+                        Command="{Binding NextStepsCommand}"
+                        BackgroundColor="{StaticResource SecondaryContainer}"
+                        TextColor="{StaticResource OnSecondaryContainer}"
+                        FontFamily="PlusJakartaSans"
+                        FontSize="15"
+                        FontAttributes="Bold"
+                        CornerRadius="9999"
+                        HeightRequest="52"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

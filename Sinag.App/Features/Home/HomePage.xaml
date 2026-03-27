@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Sinag.App.Features.Home"
+             xmlns:l="clr-namespace:Sinag.App.Helpers"
+             x:Class="Sinag.App.Features.Home.HomePage"
+             x:DataType="vm:HomeViewModel"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Surface}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- Language Picker -->
+            <HorizontalStackLayout Spacing="4" HorizontalOptions="End" Padding="24,16,24,0">
+                <Button Text="{l:Translate Lang_Filipino}"
+                        Command="{Binding SetLanguageCommand}"
+                        CommandParameter="fil"
+                        FontFamily="BeVietnamProMedium"
+                        FontSize="12"
+                        CornerRadius="9999"
+                        HeightRequest="32"
+                        Padding="12,0"
+                        MinimumWidthRequest="0"
+                        BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                        TextColor="{StaticResource OnSurface}"/>
+                <Button Text="{l:Translate Lang_English}"
+                        Command="{Binding SetLanguageCommand}"
+                        CommandParameter="en"
+                        FontFamily="BeVietnamProMedium"
+                        FontSize="12"
+                        CornerRadius="9999"
+                        HeightRequest="32"
+                        Padding="12,0"
+                        MinimumWidthRequest="0"
+                        BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                        TextColor="{StaticResource OnSurface}"/>
+                <Button Text="{l:Translate Lang_Bisaya}"
+                        Command="{Binding SetLanguageCommand}"
+                        CommandParameter="ceb"
+                        FontFamily="BeVietnamProMedium"
+                        FontSize="12"
+                        CornerRadius="9999"
+                        HeightRequest="32"
+                        Padding="12,0"
+                        MinimumWidthRequest="0"
+                        BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                        TextColor="{StaticResource OnSurface}"/>
+            </HorizontalStackLayout>
+
+            <!-- Hero Section -->
+            <VerticalStackLayout Padding="24,16,24,24" Spacing="16"
+                                 BackgroundColor="{StaticResource Surface}">
+
+                <!-- Logo + wordmark -->
+                <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Label Text="☀" FontSize="28" VerticalOptions="Center"/>
+                    <Label Text="Sinag"
+                           FontFamily="PlusJakartaSans"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Primary}"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <!-- Overline badge -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="12,6"
+                        HorizontalOptions="Center">
+                    <Label Text="{l:Translate Home_Badge}"
+                           Style="{StaticResource LabelMedium}"
+                           TextColor="{StaticResource Primary}"
+                           HorizontalOptions="Center"/>
+                </Border>
+
+                <!-- Headline -->
+                <Label Text="{l:Translate Home_Headline}"
+                       FontFamily="PlusJakartaSans"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource OnSurface}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       LineHeight="1.1"/>
+
+                <!-- Subtitle -->
+                <Label Text="{l:Translate Home_Subtitle}"
+                       FontFamily="BeVietnamProRegular"
+                       FontSize="15"
+                       TextColor="{StaticResource OnSurfaceVariant}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       LineHeight="1.6"
+                       Margin="0,0,0,8"/>
+
+                <!-- Primary CTA — The Sun Button -->
+                <Button Text="{l:Translate Home_ScanButton}"
+                        Command="{Binding ScanBillCommand}"
+                        BackgroundColor="{StaticResource PrimaryContainer}"
+                        TextColor="{StaticResource OnPrimaryContainer}"
+                        FontFamily="PlusJakartaSans"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        CornerRadius="9999"
+                        HeightRequest="60"
+                        Margin="16,8">
+                    <Button.Shadow>
+                        <Shadow Brush="{StaticResource PrimaryBrush}"
+                                Offset="0,12"
+                                Radius="32"
+                                Opacity="0.15"/>
+                    </Button.Shadow>
+                </Button>
+
+                <!-- Manual entry link -->
+                <Label Text="{l:Translate Home_ManualLink}"
+                       FontFamily="BeVietnamProMedium"
+                       FontSize="14"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalOptions="Center"
+                       Padding="0,4">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ManualEntryCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+
+            <!-- How It Works Section -->
+            <VerticalStackLayout Padding="24,32,24,8" Spacing="20"
+                                 BackgroundColor="{StaticResource Surface}">
+
+                <Label Text="{l:Translate Home_HowItWorks}"
+                       FontFamily="PlusJakartaSans"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource OnSurface}"/>
+
+                <!-- Step 1: I-scan -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="12">
+                        <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12"
+                                WidthRequest="48" HeightRequest="48"
+                                HorizontalOptions="Start">
+                            <Label Text="📸"
+                                   FontSize="24"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Border>
+                        <Label Text="{l:Translate Home_Step1Title}"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnSurface}"/>
+                        <Label Text="{l:Translate Home_Step1Desc}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="14"
+                               TextColor="{StaticResource OnSurfaceVariant}"
+                               LineHeight="1.6"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Step 2: Suriin -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="12">
+                        <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12"
+                                WidthRequest="48" HeightRequest="48"
+                                HorizontalOptions="Start">
+                            <Label Text="✅"
+                                   FontSize="24"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Border>
+                        <Label Text="{l:Translate Home_Step2Title}"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnSurface}"/>
+                        <Label Text="{l:Translate Home_Step2Desc}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="14"
+                               TextColor="{StaticResource OnSurfaceVariant}"
+                               LineHeight="1.6"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Step 3: Resulta -->
+                <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 16"
+                        Padding="20">
+                    <VerticalStackLayout Spacing="12">
+                        <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12"
+                                WidthRequest="48" HeightRequest="48"
+                                HorizontalOptions="Start">
+                            <Label Text="☀"
+                                   FontSize="24"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Border>
+                        <Label Text="{l:Translate Home_Step3Title}"
+                               FontFamily="PlusJakartaSans"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnSurface}"/>
+                        <Label Text="{l:Translate Home_Step3Desc}"
+                               FontFamily="BeVietnamProRegular"
+                               FontSize="14"
+                               TextColor="{StaticResource OnSurfaceVariant}"
+                               LineHeight="1.6"/>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+
+            <!-- Savings Tease Banner -->
+            <Border BackgroundColor="{StaticResource TertiaryContainer}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 16"
+                    Padding="24"
+                    Margin="24,24,24,0">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="{l:Translate Home_BannerTitle}"
+                           FontFamily="PlusJakartaSans"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource OnTertiaryContainer}"/>
+                    <Label Text="{l:Translate Home_BannerDesc}"
+                           FontFamily="BeVietnamProRegular"
+                           FontSize="14"
+                           TextColor="{StaticResource OnTertiaryContainer}"
+                           Opacity="0.8"
+                           LineHeight="1.6"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Footer -->
+            <VerticalStackLayout BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                 Padding="24,24,24,32"
+                                 Spacing="8"
+                                 Margin="0,24,0,0">
+                <Label Text="Sinag"
+                       FontFamily="PlusJakartaSans"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalOptions="Center"/>
+                <Label Text="{l:Translate Copyright}"
+                       FontFamily="BeVietnamProRegular"
+                       FontSize="11"
+                       TextColor="{StaticResource OnSurfaceVariant}"
+                       HorizontalOptions="Center"
+                       Opacity="0.7"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

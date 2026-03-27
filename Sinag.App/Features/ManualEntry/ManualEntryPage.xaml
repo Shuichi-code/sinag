@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Sinag.App.Features.ManualEntry"
+             xmlns:l="clr-namespace:Sinag.App.Helpers"
+             x:Class="Sinag.App.Features.ManualEntry.ManualEntryPage"
+             x:DataType="vm:ManualEntryViewModel"
+             Title="{l:Translate Manual_Title}"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Hero Instruction -->
+                <VerticalStackLayout Padding="24,24,24,16" Spacing="8">
+                    <Label Text="{l:Translate Manual_Headline}"
+                           FontFamily="PlusJakartaSans"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}"/>
+                    <Label Text="{l:Translate Manual_Subtitle}"
+                           FontFamily="BeVietnamProRegular"
+                           FontSize="14"
+                           TextColor="{StaticResource OnSurfaceVariant}"
+                           LineHeight="1.6"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Padding="24,0,24,24" Spacing="16">
+
+                    <!-- Usage Group Card -->
+                    <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="20">
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource PrimaryBrush}"
+                                    Offset="0,12" Radius="32" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="20">
+
+                            <!-- Section header -->
+                            <HorizontalStackLayout Spacing="10">
+                                <Label Text="⚡"
+                                       FontSize="20"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{l:Translate Manual_UsageSection}"
+                                       FontFamily="PlusJakartaSans"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource OnSurface}"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+
+                            <!-- kWh Consumed -->
+                            <VerticalStackLayout Spacing="6">
+                                <Label Text="{l:Translate Review_KwhConsumed}"
+                                       Style="{StaticResource LabelMedium}"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                                <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 12"
+                                        Padding="16,10">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <Entry Text="{Binding KwhConsumedText}"
+                                               Keyboard="Numeric"
+                                               Placeholder="{l:Translate Manual_KwhPlaceholder}"
+                                               FontFamily="PlusJakartaSans"
+                                               FontSize="18"
+                                               TextColor="{StaticResource OnSurface}"
+                                               BackgroundColor="Transparent"/>
+                                        <Label Grid.Column="1"
+                                               Text="{l:Translate KwhUnit}"
+                                               FontFamily="BeVietnamProMedium"
+                                               FontSize="14"
+                                               TextColor="{StaticResource OnSurfaceVariant}"
+                                               VerticalOptions="Center"/>
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+
+                            <!-- Row: Days and Month -->
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                                <!-- Billing Period Days -->
+                                <VerticalStackLayout Spacing="6">
+                                    <Label Text="{l:Translate Manual_DaysLabel}"
+                                           Style="{StaticResource LabelMedium}"
+                                           TextColor="{StaticResource OnSurfaceVariant}"/>
+                                    <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 12"
+                                            Padding="16,10">
+                                        <Entry Text="{Binding BillingPeriodDaysText}"
+                                               Keyboard="Numeric"
+                                               FontFamily="PlusJakartaSans"
+                                               FontSize="18"
+                                               TextColor="{StaticResource OnSurface}"
+                                               BackgroundColor="Transparent"/>
+                                    </Border>
+                                </VerticalStackLayout>
+
+                                <!-- Billing Month -->
+                                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                    <Label Text="{l:Translate Manual_MonthLabel}"
+                                           Style="{StaticResource LabelMedium}"
+                                           TextColor="{StaticResource OnSurfaceVariant}"/>
+                                    <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 12"
+                                            Padding="16,4">
+                                        <Picker ItemsSource="{Binding Months}"
+                                                SelectedIndex="{Binding SelectedBillingMonthIndex}"
+                                                FontSize="16"
+                                                TextColor="{StaticResource OnSurface}"/>
+                                    </Border>
+                                </VerticalStackLayout>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Financial Group Card -->
+                    <Border BackgroundColor="{StaticResource SurfaceContainerLow}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="20">
+                        <Border.Shadow>
+                            <Shadow Brush="{StaticResource PrimaryBrush}"
+                                    Offset="0,12" Radius="32" Opacity="0.08"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="20">
+
+                            <!-- Section header -->
+                            <HorizontalStackLayout Spacing="10">
+                                <Label Text="💰"
+                                       FontSize="20"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{l:Translate Manual_ChargesSection}"
+                                       FontFamily="PlusJakartaSans"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource OnSurface}"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Generation Charge -->
+                            <VerticalStackLayout Spacing="6">
+                                <Label Text="{l:Translate Manual_GenChargeLabel}"
+                                       Style="{StaticResource LabelMedium}"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                                <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 12"
+                                        Padding="16,10">
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <Label Text="₱"
+                                               FontFamily="BeVietnamProMedium"
+                                               FontSize="16"
+                                               TextColor="{StaticResource OnSurfaceVariant}"
+                                               VerticalOptions="Center"
+                                               Margin="0,0,4,0"/>
+                                        <Entry Grid.Column="1"
+                                               Text="{Binding GenerationChargeText}"
+                                               Keyboard="Numeric"
+                                               FontFamily="PlusJakartaSans"
+                                               FontSize="18"
+                                               TextColor="{StaticResource OnSurface}"
+                                               BackgroundColor="Transparent"/>
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+
+                            <!-- Total Amount Due -->
+                            <VerticalStackLayout Spacing="6">
+                                <Label Text="{l:Translate Manual_TotalAmount}"
+                                       Style="{StaticResource LabelMedium}"
+                                       TextColor="{StaticResource OnSurfaceVariant}"/>
+                                <Border BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 12"
+                                        Padding="16,10">
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <Label Text="₱"
+                                               FontFamily="BeVietnamProMedium"
+                                               FontSize="16"
+                                               TextColor="{StaticResource OnSurfaceVariant}"
+                                               VerticalOptions="Center"
+                                               Margin="0,0,4,0"/>
+                                        <Entry Grid.Column="1"
+                                               Text="{Binding TotalAmountDueText}"
+                                               Keyboard="Numeric"
+                                               Placeholder="0.00"
+                                               FontFamily="PlusJakartaSans"
+                                               FontSize="18"
+                                               TextColor="{StaticResource OnSurface}"
+                                               BackgroundColor="Transparent"/>
+                                    </Grid>
+                                </Border>
+                                <Label Text="{l:Translate Manual_TotalHint}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="12"
+                                       TextColor="{StaticResource OnSurfaceVariant}"
+                                       FontAttributes="Italic"
+                                       Padding="4,0,0,0"/>
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Battery Toggle Card -->
+                    <Border BackgroundColor="{StaticResource SecondaryContainer}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 16"
+                            Padding="16"
+                            Opacity="0.8">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                            <Border BackgroundColor="{StaticResource SurfaceContainerLowest}"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 9999"
+                                    WidthRequest="48" HeightRequest="48">
+                                <Label Text="🔋"
+                                       FontSize="22"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                <Label Text="{l:Translate IncludeBattery}"
+                                       FontFamily="PlusJakartaSans"
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource OnSecondaryContainer}"/>
+                                <Label Text="{l:Translate Manual_BatteryDesc}"
+                                       FontFamily="BeVietnamProRegular"
+                                       FontSize="11"
+                                       TextColor="{StaticResource OnSecondaryContainer}"
+                                       Opacity="0.8"/>
+                            </VerticalStackLayout>
+                            <Switch Grid.Column="2"
+                                    IsToggled="{Binding IncludeBattery}"
+                                    VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Calculate Button -->
+                    <Button Text="{l:Translate Manual_Calculate}"
+                            Command="{Binding CalculateCommand}"
+                            BackgroundColor="{StaticResource PrimaryContainer}"
+                            TextColor="{StaticResource OnPrimaryContainer}"
+                            FontFamily="PlusJakartaSans"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            CornerRadius="9999"
+                            HeightRequest="60"
+                            Margin="0,8,0,24">
+                        <Button.Shadow>
+                            <Shadow Brush="{StaticResource PrimaryBrush}"
+                                    Offset="0,12" Radius="32" Opacity="0.12"/>
+                        </Button.Shadow>
+                    </Button>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Loading overlay -->
+        <Grid IsVisible="{Binding IsLoading}"
+              BackgroundColor="#80000000">
+            <ActivityIndicator IsRunning="True"
+                               Color="{StaticResource PrimaryContainer}"
+                               HeightRequest="48"
+                               WidthRequest="48"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentPage>

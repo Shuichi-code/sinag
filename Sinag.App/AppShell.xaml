@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Sinag.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:home="clr-namespace:Sinag.App.Features.Home"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="True"
+    Shell.BackgroundColor="{StaticResource SurfaceContainerLow}"
+    Shell.ForegroundColor="{StaticResource Primary}"
+    Shell.TitleColor="{StaticResource Primary}"
+    Title="Sinag">
+
+    <!-- Only the default page is declared in XAML; others use route registration -->
+    <ShellContent Route="HomePage"
+                  ContentTemplate="{DataTemplate home:HomePage}" />
+
+</Shell>
